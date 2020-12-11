@@ -5,9 +5,22 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'tab1',
+    loadChildren: () => import('./home/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'tab2',
+    loadChildren: () => import('./match/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./me/tab3.module').then( m => m.Tab3PageModule)
   }
 
 ];
