@@ -12,9 +12,13 @@
       <ion-card-title>Accéder aux paramètres</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-button expend="block" color="primary" shape="round" size="small" (click)="onGoToSettings()">Settings</ion-button>
+      <ion-button color="primary" shape="round" size="small" href="/settings">Paramètres</ion-button>
     </ion-card-content>
   </ion-card>
+
+  <ion-item detail routerLink="/settings">
+    <ion-label>Paramètres</ion-label>
+  </ion-item>
 
   <ion-card>
     <ion-img src="../../assets/images/vulbis_orig.png"></ion-img>

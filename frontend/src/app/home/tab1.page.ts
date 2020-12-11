@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import {SettingsPage} from '../settings/settings';
 
 @Component({
   selector: 'app-tab1',
@@ -9,12 +7,8 @@ import {SettingsPage} from '../settings/settings';
 })
 export class Tab1Page {
 
-  constructor(private router: Router) {
+  constructor() {
 
-  }
-
-  public onGoToSettings(){
-    return this.router.navigateByUrl('SettingsPage');
   }
 
 }

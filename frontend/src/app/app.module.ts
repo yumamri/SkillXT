@@ -9,12 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// import the page ive just created (settings)
-import {SettingsPage} from './settings/settings';
-
 @NgModule({
-  declarations: [AppComponent, SettingsPage],
-  entryComponents: [SettingsPage],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
