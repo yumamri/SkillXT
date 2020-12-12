@@ -25,7 +25,7 @@ public class UserEntity {
     String password;
 
     @Column(name = "country")
-    String country;
+     String country;
 
     public int getId() {
         return id;
