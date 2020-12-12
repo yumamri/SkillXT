@@ -8,19 +8,6 @@
 
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Accéder aux paramètres</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button color="primary" shape="round" size="small" routerLink="/settings">Paramètres</ion-button>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-item detail routerLink="/settings">
-    <ion-label>Paramètres</ion-label>
-  </ion-item>
-
-  <ion-card>
     <ion-img src="../../assets/images/vulbis_orig.png"></ion-img>
     <ion-card-header>
       <ion-card-title>Dofus Vulbis</ion-card-title>
@@ -38,6 +25,37 @@
       Le jeu open world, free to play par excellence
     </ion-card-content>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Connection</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="tertiary" shape="round" size="small" routerLink="/sign-in">Se Connecter</ion-button>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-label>Pas de compte ?</ion-label>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button color="tertiary" shape="round" size="small" routerLink="/sign-up">Créer un compte</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Accéder aux paramètres</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="primary" shape="round" size="small" routerLink="/settings">Paramètres</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item detail routerLink="/settings">
+    <ion-label>Paramètres</ion-label>
+  </ion-item>
+
 </ion-content>
 
 <ion-footer>
