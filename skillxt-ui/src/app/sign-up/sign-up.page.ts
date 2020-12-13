@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpPage implements OnInit {
 
+  title = 'Créer un compte';
+
   constructor() { }
 
   ngOnInit() {
