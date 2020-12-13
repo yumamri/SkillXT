@@ -8,7 +8,6 @@ public class SkillXtApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SkillXtApplication.class, args);
-		System.out.println("hello");
 	}
 
 }

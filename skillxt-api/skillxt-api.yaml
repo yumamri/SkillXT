@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
   - description: SkillXT API
-    url: http://localhost:I 8080
+    url: http://localhost:8080
 info:
   description: This is a simple API
   version: "1.0.0"
@@ -62,6 +62,7 @@ components:
         - name
         - family
         - password
+        - country
       properties:
         email:
           type: string
@@ -75,3 +76,5 @@ components:
         password:
           type: string
           example: password123
+        country:
+          type: string

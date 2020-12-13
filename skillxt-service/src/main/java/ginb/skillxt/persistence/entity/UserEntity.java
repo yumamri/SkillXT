@@ -1,15 +1,17 @@
 package ginb.skillxt.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.NaturalId;
+
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "user")
 public class UserEntity {
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     @Column(name = "name")
@@ -18,6 +20,7 @@ public class UserEntity {
     @Column(name = "family")
     String family;
 
+    @NaturalId
     @Column(name = "email")
     String email;
 
@@ -69,5 +72,18 @@ public class UserEntity {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserEntity)) return false;
+        UserEntity that = (UserEntity) o;
+        return Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
     }
 }
