@@ -12,7 +12,7 @@
 	<groupId>ginb</groupId>
 	<artifactId>skillxt-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SkillXT</name>
+	<name>skilxt-service</name>
 	<description>Application to meet new people by sharing skills and knowledge</description>
 
 	<properties>
@@ -33,10 +33,18 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.2</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -70,6 +78,39 @@
 					<user>user</user>
 					<password>password</password>
 				</configuration>
+			</plugin>
+			<!-- REST server generation -->
+			<plugin>
+				<groupId>io.swagger.codegen.v3</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>3.0.20</version>
+				<executions>
+					<execution>
+						<id>v1</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>../skillxt-api/skillxt-api.yaml</inputSpec>
+							<language>spring</language>
+							<apiPackage>ginb.skillxt.rest.v1.handler</apiPackage>
+							<modelPackage>ginb.skillxt.rest.v1.model</modelPackage>
+							<invokerPackage>ginb.skillxt.rest.v1.handler</invokerPackage>
+							<generateApiTests>false</generateApiTests>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<dateLibrary>java8</dateLibrary>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>io.swagger.codegen.v3</groupId>
+						<artifactId>swagger-codegen-generators</artifactId>
+						<version>1.0.20</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

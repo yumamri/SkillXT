@@ -1,0 +1,77 @@
+openapi: 3.0.0
+servers:
+  - description: SkillXT API
+    url: http://localhost:I 8080
+info:
+  description: This is a simple API
+  version: "1.0.0"
+  title: SkillXT API
+paths:
+  /users:
+    get:
+      tags:
+        - users
+      summary: searches users
+      operationId: searchUsers
+      description: |
+        By passing in the appropriate options, you can search for
+        available user in the system
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up inventory
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - users
+      summary: adds a user item
+      operationId: addUser
+      description: Adds a user to the system
+      responses:
+        '201':
+          description: user added
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing user already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        description: User item to add
+components:
+  schemas:
+    UserDTO:
+      type: object
+      required:
+        - email
+        - name
+        - family
+        - password
+      properties:
+        email:
+          type: string
+          example: email@gmail.com
+        name:
+          type: string
+          example: Marc
+        family:
+          type: string
+          example: Joseph
+        password:
+          type: string
+          example: password123

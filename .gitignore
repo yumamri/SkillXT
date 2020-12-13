@@ -1,17 +1,13 @@
-/backend/HELP.md
-/backend/target/
-/backend/.mvn/
-/backend/!**/src/main/**/target/
-/backend/!**/src/test/**/target/
+target/
+__pycache__/
 
 ### STS ###
-/backend/.apt_generated
-/backend/.classpath
-/backend/.factorypath
-/backend/.project
-/backend/.settings
-/backend/.springBeans
-/backend/.sts4-cache
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
 
 ### IntelliJ IDEA ###
 .idea
@@ -20,17 +16,11 @@
 *.ipr
 
 ### NetBeans ###
-/backend/nbproject/private/
-/backend/nbbuild/
-/backend/dist/
-/backend/nbdist/
-/backend/.nb-gradle/
-/backendbuild/
-/backend/!**/src/main/**/build/
-/backend/!**/src/test/**/build/
-
-### VS Code ###
-/backend/.vscode/
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 
-node_modules
