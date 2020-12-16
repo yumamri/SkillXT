@@ -1,6 +1,17 @@
 <div class="flex">
-  <ion-content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="/tabs/tab1" text="retour"></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
 
+    </ion-header>
+
+    <ion-content>
+      <ion-buttons slot="start">
+          <ion-back-button routerLink="/tabs/tab1" text="retour"></ion-back-button>
+      </ion-buttons>
 <!--    logo-->
     <img src="./assets/images/vulbis_orig.png" width="200">
 
