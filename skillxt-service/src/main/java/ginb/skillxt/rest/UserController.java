@@ -23,7 +23,7 @@ public class UserController implements UsersApi {
     @Override
     public ResponseEntity<Void> addUser(@Valid UserDTO body) {
 
-        if (userService.addUser(body)) {
+        if (userService.addUser(body).equals(ResponseEntity.status(HttpStatus.CREATED).build())) {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .build();
