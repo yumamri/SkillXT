@@ -1,0 +1,50 @@
+ion-header{
+  --ion-background-color: var(--ion-color-primary);
+}
+
+ion-back-button, ion-title{
+  color: var(--ion-color-light);
+}
+
+ion-content{
+  --ion-background-color: var(--ion-color-four);
+}
+
+.flex {
+  height: 100%;
+  width: 100%;
+}
+
+ion-card {
+  width: 85%;
+  margin: 5% auto;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: var(--ion-color-light);
+}
+
+ion-item {
+  --ion-background-color: var(--ion-color-light);
+}
+
+ion-card ion-title {
+  color: #0d0d0d;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+
+a {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  color: #0d0d0d;
+  font-size: 18px;
+}
+
+ion-card:last-child ion-label{
+  color: var(--ion-color-danger);
+}
