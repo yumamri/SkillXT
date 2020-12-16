@@ -1,32 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button routerLink="/tabs/tab1" text="retour"></ion-back-button>
-    </ion-buttons>
+<div class="flex">
+  <ion-content>
 
-    <ion-title>{{title}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--    logo-->
+    <img src="./assets/images/vulbis_orig.png" width="200">
 
-<ion-content>
-  <ion-card>
-    <ion-toolbar>
+    <ion-card>
+
       <ion-input placeholder="nom"></ion-input>
       <ion-input placeholder="prénom"></ion-input>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-input placeholder="mail"></ion-input>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-input color="primary" placeholder="mot de passe" type="password"></ion-input>
+
+      <ion-input class="separator" placeholder="mail"></ion-input>
+
       <ion-input placeholder="mot de passe" type="password"></ion-input>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-button shape="round">Créer un compte</ion-button>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-button routerLink="/sign-in">Se connecter</ion-button>
-    </ion-toolbar>
-    <a routerLink="/sign-in">Se connecter</a>
-  </ion-card>
-</ion-content>
+      <ion-input placeholder="mot de passe" type="password"></ion-input>
+
+      <ion-button class="separator" shape="round">Créer un compte</ion-button>
+
+      <a routerLink="/sign-in">Se connecter</a>
+    </ion-card>
+  </ion-content>
+</div>

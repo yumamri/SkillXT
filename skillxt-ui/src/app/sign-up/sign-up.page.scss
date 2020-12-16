@@ -1,8 +1,62 @@
-a{
-  text-decoration: none;
-  color: #8878ff;
+ion-content{
+  --ion-background-color: var(--ion-color-secondary);
+}
+
+.flex {
+  height: 100%;
+  width: 100%;
+}
+ion-card {
+  width: 85%;
+  margin: 7%;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: var(--ion-color-light);
+}
+
+ion-input:first-child{
+  margin-top: 8%;
+}
+
+ion-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  //color: var(--ion-color-light);
+  color: #0d0d0d;
+  background-color: var(--ion-color-four-tint);
+  width: 90%;
 }
 
 ion-button {
-  --color: #c8cf5a;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  color: var(--ion-color-light);
+  --background: var(--ion-color-primary);
+}
+
+.separator {
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+a {
+  margin-left: auto;
+  margin-bottom: 2%;
+  margin-right: auto;
+  display: block;
+  text-decoration: none;
+  width: 26%;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 10%;
 }
