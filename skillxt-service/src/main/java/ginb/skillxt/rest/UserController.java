@@ -1,10 +1,14 @@
 package ginb.skillxt.rest;
 
+import ginb.skillxt.domain.exception.BadRequestException;
+import ginb.skillxt.domain.exception.BusinessException;
+import ginb.skillxt.domain.exception.UserExistsException;
 import ginb.skillxt.domain.service.UserService;
 import ginb.skillxt.rest.v1.handler.UsersApi;
 import ginb.skillxt.rest.v1.model.UserDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -23,12 +27,13 @@ public class UserController implements UsersApi {
     @Override
     public ResponseEntity<Void> addUser(@Valid UserDTO body) {
 
-        if (userService.addUser(body).equals(ResponseEntity.status(HttpStatus.CREATED).build())) {
+        try {
+            userService.addUser(body);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .build();
-        } else {
-            return ResponseEntity.badRequest().build();
+        } catch (BusinessException e) {
+            return handleErrorsResponseEntity(e);
         }
 
     }
@@ -37,5 +42,23 @@ public class UserController implements UsersApi {
     public ResponseEntity<List<UserDTO>> searchUsers(@Valid String searchString) {
 
         return ResponseEntity.ok(Collections.emptyList());
+    }
+
+
+
+    private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {
+        if (e instanceof UserExistsException) {
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .build();
+        } else if (e instanceof BadRequestException) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
+        }
     }
 }

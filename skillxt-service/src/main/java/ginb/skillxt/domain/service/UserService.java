@@ -1,11 +1,13 @@
 package ginb.skillxt.domain.service;
 
+import ginb.skillxt.domain.exception.BadRequestException;
+import ginb.skillxt.domain.exception.BusinessException;
+import ginb.skillxt.domain.exception.UserExistsException;
 import ginb.skillxt.domain.mapper.DTOMapper;
 import ginb.skillxt.persistence.repository.UserRepository;
 import ginb.skillxt.rest.v1.model.UserDTO;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class UserService {
@@ -17,13 +19,19 @@ public class UserService {
         this.dtoMapper = dtoMapper;
     }
 
-    public ResponseEntity<Void> addUser(UserDTO userDTO) {
+    public void addUser(UserDTO userDTO) throws BusinessException {
         //TODO: check input params
+        checkParams(userDTO);
         if (userRepository.existsByEmail(userDTO.getEmail())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            throw new UserExistsException();
         } else {
             userRepository.save(dtoMapper.map(userDTO));
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }
+    }
+
+    private void checkParams(UserDTO userDTO) throws BadRequestException {
+        if (!StringUtils.hasText(userDTO.getEmail())) {
+            throw new BadRequestException();
         }
     }
 }

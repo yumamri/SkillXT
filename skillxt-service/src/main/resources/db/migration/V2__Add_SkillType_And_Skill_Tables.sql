@@ -43,20 +43,19 @@ INSERT INTO `skill` (`id`, `title`, `idType`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `skillType`
+-- Table structure for table `skill_type`
 --
 
-CREATE TABLE IF NOT EXISTS `skillType` (
+CREATE TABLE IF NOT EXISTS `skill_type` (
   `id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `skillType`
+-- Dumping data for table `skill_type`
 --
 
-INSERT INTO `skillType` (`id`, `type`) VALUES
-(1, 'musique');
+INSERT INTO `skill_type` (`id`, `type`) VALUES (1, 'musique');
 
 --
 -- Indexes for dumped tables
@@ -70,10 +69,10 @@ ALTER TABLE `skill`
   ADD KEY `idType` (`idType`);
 
 --
--- Indexes for table `skillType`
+-- Indexes for table `skill_type`
 --
-ALTER TABLE `skillType`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `skill_type`
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -85,9 +84,9 @@ ALTER TABLE `skillType`
 ALTER TABLE `skill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `skillType`
+-- AUTO_INCREMENT for table `skill_type`
 --
-ALTER TABLE `skillType`
+ALTER TABLE `skill_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
@@ -97,7 +96,7 @@ ALTER TABLE `skillType`
 -- Constraints for table `skill`
 --
 ALTER TABLE `skill`
-  ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`idType`) REFERENCES `skillType` (`id`);
+  ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`idType`) REFERENCES `skill_type` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
