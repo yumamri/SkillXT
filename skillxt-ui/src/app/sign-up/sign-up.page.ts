@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserDto} from "../api/models/user-dto";
-import {UserService} from "../services/user.service";
+import {UserDto} from '../api/models/user-dto';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,6 +9,8 @@ import {UserService} from "../services/user.service";
 })
 export class SignUpPage implements OnInit {
 
+  constructor(private userService: UserService) { }
+
   name: string;
   family: string;
   email: string;
@@ -16,21 +18,19 @@ export class SignUpPage implements OnInit {
 
   title = 'Créer un compte';
 
-  constructor(private userService: UserService) { }
-
   ngOnInit() {
   }
 
   onSave() {
-    let user: UserDto = {
+    const user: UserDto = {
       name: this.name,
       family: this.family,
       email: this.email,
       password: this.password,
-      country: "France"
-    }
-    this.userService.addUser(user).subscribe(()=>{
-    //TODO: boolean okay to put dialog somewhere else
-    })
+      country: 'France'
+    };
+    this.userService.addUser(user).subscribe(() => {
+    // TODO: boolean okay to put dialog somewhere else
+    });
   }
 }

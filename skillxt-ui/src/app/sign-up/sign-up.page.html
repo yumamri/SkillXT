@@ -4,6 +4,7 @@
             <ion-buttons slot="start">
                 <ion-back-button defaultHref="/tabs/tab1" text="retour"></ion-back-button>
             </ion-buttons>
+
         </ion-toolbar>
 
     </ion-header>
@@ -20,14 +21,14 @@
             <ion-input placeholder="nom" [(ngModel)]="family"></ion-input>
             <ion-input placeholder="prénom" [(ngModel)]="name"></ion-input>
 
-            <ion-input class="separator" placeholder="mail" [(ngModel)]="email"></ion-input>
+            <ion-input class="separator" placeholder="email" type="email" [(ngModel)]="email" formControlName="email"></ion-input>
 
             <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
 <!--            <ion-input placeholder="confirmer le mot de passe" type="password" ></ion-input>-->
             <section>
                 <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
             </section>
-            <a routerLink="/sign-in">Se connecter</a>
+            <a class="ion-text-center" routerLink="/sign-in">Se connecter</a>
         </ion-card>
     </ion-content>
 </div>

@@ -35,13 +35,12 @@ ion-card ion-title {
 }
 
 a {
-  margin-left: auto;
-  margin-right: auto;
   display: block;
   text-decoration: none;
   text-align: center;
   color: #0d0d0d;
   font-size: 18px;
+  margin: 2% auto;
 }
 
 ion-card:last-child ion-label{
