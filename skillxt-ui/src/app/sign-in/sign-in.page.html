@@ -1,13 +1,30 @@
-<ion-header>
-  <ion-toolbar>
+<div class="flex">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/tab1" text="retour"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1" text="retour"></ion-back-button>
+      <ion-back-button routerLink="/tabs/tab1" text="retour"></ion-back-button>
     </ion-buttons>
+    <!--    logo-->
+    <img src="./assets/images/logoSXT.png">
 
-    <ion-title>Se Connecter</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-card>
+      <div>
+        <ion-input placeholder="email" type="email"></ion-input>
+      </div>
+      <ion-input placeholder="mot de passe" type="password"></ion-input>
 
-<ion-content>
-
-</ion-content>
+      <section>
+        <ion-button class="ion-text-center" shape="round">Se connecter</ion-button>
+      </section>
+      <a class="ion-text-center" routerLink="/sign-up">Créer un compte</a>
+    </ion-card>
+  </ion-content>
+</div>

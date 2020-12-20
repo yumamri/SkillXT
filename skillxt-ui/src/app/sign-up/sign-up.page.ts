@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserDto} from "../api/models/user-dto";
-import {UserService} from "../services/user.service";
+import {UserDto} from '../api/models/user-dto';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -27,9 +27,9 @@ export class SignUpPage implements OnInit {
       family: this.family,
       email: this.email,
       password: this.password,
-      country: "France"
+      country: 'France'
     }
-    this.userService.addUser(user).subscribe(()=>{
+    this.userService.addUser(user).subscribe(() => {
     // TODO: boolean okay to put dialog somewhere else
     })
   }
