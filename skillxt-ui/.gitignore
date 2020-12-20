@@ -46,3 +46,4 @@ testem.log
 Thumbs.db
 /projects/search-openapi-client/src/
 
+/src/app/services/
