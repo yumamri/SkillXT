@@ -3,6 +3,7 @@ package ginb.skillxt.persistence.entity;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Objects;
 
 @Entity

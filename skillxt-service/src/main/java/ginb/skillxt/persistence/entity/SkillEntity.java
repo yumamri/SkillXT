@@ -2,6 +2,7 @@ package ginb.skillxt.persistence.entity;
 
 import java.util.Objects;
 
+//@Entity
 public class SkillEntity {
     private int id;
     private String title;

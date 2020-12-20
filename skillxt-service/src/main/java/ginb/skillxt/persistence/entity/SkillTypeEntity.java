@@ -1,7 +1,9 @@
 package ginb.skillxt.persistence.entity;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+//@Entity
 public class SkillTypeEntity {
     private int id;
     private String type;
