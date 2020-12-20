@@ -18,11 +18,14 @@
         <ion-card>
                 <ion-input placeholder="nom" [(ngModel)]="family" ></ion-input>
                 <ion-input placeholder="prénom" [(ngModel)]="name" ></ion-input>
-
+            <form [formGroup]="ionicForm">
                 <div>
-                    <ion-input placeholder="email" type="email" [(ngModel)]="email" ></ion-input>
+                    <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
                 </div>
-
+                <span class="error ion-padding" *ngIf="errorControl.email.errors?.pattern">
+      Please provide valid email id.
+    </span>
+            </form>
 
                 <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
                 <!--            <ion-input placeholder="confirmer le mot de passe" type="password" ></ion-input>-->

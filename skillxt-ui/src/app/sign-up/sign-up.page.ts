@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserDto} from "../api/models/user-dto";
 import {UserService} from "../services/user.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +9,7 @@ import {UserService} from "../services/user.service";
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
-
+  ionicForm: FormGroup;
   name: string;
   family: string;
   email: string;
@@ -16,11 +17,16 @@ export class SignUpPage implements OnInit {
 
   title = 'Créer un compte';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.ionicForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
+    })
   }
-
+  get errorControl() {
+    return this.ionicForm.controls;
+  }
   onSave() {
     let user: UserDto = {
       name: this.name,
