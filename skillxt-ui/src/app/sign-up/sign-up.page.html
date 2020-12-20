@@ -17,13 +17,15 @@
         <img src="./assets/images/vulbis_orig.png">
 
         <ion-card>
-            <form [formGroup]="">
-                <ion-input placeholder="nom" [(ngModel)]="family"></ion-input>
-                <ion-input placeholder="prénom" [(ngModel)]="name"></ion-input>
+            <form [formGroup]="userForm">
+                <ion-input placeholder="nom" [(ngModel)]="family" formControlName="family"></ion-input>
+                <ion-input placeholder="prénom" [(ngModel)]="name" formControlName="name"></ion-input>
 
-                <ion-input class="separator" placeholder="email" type="email" [(ngModel)]="email" formControlName="email"></ion-input>
+                <div>
+                    <ion-input placeholder="email" type="email" [(ngModel)]="email" formControlName="email"></ion-input>
+                </div>
 
-                <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
+                <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password" formControlName="password"></ion-input>
                 <!--            <ion-input placeholder="confirmer le mot de passe" type="password" ></ion-input>-->
                 <section>
                     <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
