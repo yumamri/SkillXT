@@ -45,5 +45,3 @@ testem.log
 .DS_Store
 Thumbs.db
 /projects/search-openapi-client/src/
-
-/src/app/services/
