@@ -10,6 +10,11 @@ ion-content{
   --ion-background-color: var(--ion-color-secondary);
 }
 
+div:not(.flex){
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 .flex {
   height: 100%;
   width: 100%;
