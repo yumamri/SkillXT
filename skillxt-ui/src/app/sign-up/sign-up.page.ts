@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserDto} from "../api/models/user-dto";
 import {UserService} from "../services/user.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import {ConfirmedValidator} from "./confirmed.validator";
 
 @Component({
   selector: 'app-sign-up',
@@ -17,16 +18,19 @@ export class SignUpPage implements OnInit {
 
   title = 'Créer un compte';
 
-  constructor(private userService: UserService, public formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, public formBuilder: FormBuilder) {
+    this.ionicForm = this.formBuilder.group({
+          family: ['', [Validators.required]],
+          name: ['', [Validators.required]],
+          password: ['', [Validators.required]],
+          confirmPassword: ['', [Validators.required]],
+          email: ['', [Validators.required, Validators.pattern('[a-z0-9._-]+@[a-z0-9]+.[a-z]{2,3}$')]]
+        }, {
+          validator: ConfirmedValidator('password', 'confirmPassword')
+        })
+  }
 
   ngOnInit() {
-    this.ionicForm = this.formBuilder.group({
-      family: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._-]+@[a-z0-9]+.[a-z]{2,3}$')]],
-    })
   }
   get errorControl() {
     return this.ionicForm.controls;
@@ -40,7 +44,7 @@ export class SignUpPage implements OnInit {
       country: "France"
     }
     this.userService.addUser(user).subscribe(()=>{
-    // TODO: boolean okay to put dialog somewhere else
+      // TODO: boolean okay to put dialog somewhere else
     })
   }
 }

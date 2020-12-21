@@ -27,12 +27,12 @@
                 <span class="error" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
                 <span class="error" *ngIf="errorControl.email.errors?.required">Email is required.</span>
 
-                <ion-input placeholder="mot de passe" type="password" formControlName="password"></ion-input>
+                <ion-input placeholder="mot de passe" type="abc" formControlName="password"></ion-input>
                 <span class="error" *ngIf="errorControl.password.errors?.required">Password is required.</span>
 
-                <ion-input placeholder="confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
+                <ion-input placeholder="confirmer le mot de passe" type="abc" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
                 <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
-
+                <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Password must match.</span>
             </form>
                 <section>
                     <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
