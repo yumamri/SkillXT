@@ -29,7 +29,11 @@ const routes: Routes = [
   {
     path: 'sign-up',
     loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },  {
+    path: 'skills',
+    loadChildren: () => import('./skills/skills.module').then( m => m.SkillsPageModule)
   }
+
 
 
 ];
