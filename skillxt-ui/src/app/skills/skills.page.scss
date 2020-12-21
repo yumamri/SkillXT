@@ -1,0 +1,65 @@
+ion-header{
+  --ion-background-color: var(--ion-color-primary);
+}
+
+ion-back-button{
+  color: var(--ion-color-light);
+}
+
+ion-title{
+  color: var(--ion-color-light);
+}
+
+ion-content{
+  --ion-background-color: var(--ion-color-four);
+}
+
+ion-card {
+  width: 85%;
+  margin: 7%;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: var(--ion-color-light);
+}
+
+#sides{
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+ion-card-header div div:first-child{
+  float:left;
+  width: 50%;
+  overflow: hidden;
+  text-align: center;
+  border-right: 1px solid #0d0d0d;
+}
+
+ion-card-header div div:nth-child(2){
+  float:right;
+  width: 50%;
+  overflow: hidden;
+  text-align: center;
+}
+
+ion-card-content div div:first-child{
+  float:left;
+  width: 75%;
+  overflow: hidden;
+}
+
+ion-card-content div div:nth-child(2){
+  float:right;
+  width: 25%;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 3.5%;
+}
+
+ion-item,{
+  --background: var(--ion-color-light);
+}
+
+ion-list{
+  background: var(--ion-color-light);
+}
