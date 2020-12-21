@@ -30,7 +30,11 @@ public class UserService {
     }
 
     private void checkParams(UserDTO userDTO) throws BadRequestException {
-        if (!StringUtils.hasText(userDTO.getEmail())) {
+        if (!StringUtils.hasText(userDTO.getName())||
+                !StringUtils.hasText(userDTO.getFamily())||
+                !StringUtils.hasText(userDTO.getEmail())||
+                !StringUtils.hasText(userDTO.getCountry())||
+                !StringUtils.hasText(userDTO.getPassword())) {
             throw new BadRequestException();
         }
     }
