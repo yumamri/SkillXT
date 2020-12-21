@@ -23,8 +23,8 @@
             <form [formGroup]="ionicForm">
                 <div>
                     <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
+                    <span class="error ion-padding" *ngIf="errorControl.email.errors?.pattern">Veuillez entrer un email valide.</span>
                 </div>
-                <span class="error ion-padding" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
             </form>
 
                 <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
