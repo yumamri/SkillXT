@@ -1,0 +1,25 @@
+ion-card-content div div:first-child{
+  float:left;
+  width: 75%;
+  overflow: hidden;
+}
+
+ion-card-content div div:nth-child(2){
+  float:right;
+  width: 25%;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 3.5%;
+}
+
+ion-item,{
+  --background: var(--ion-color-light);
+}
+
+ion-list{
+  background: var(--ion-color-light);
+}
+
+a{
+  text-decoration: none;
+}

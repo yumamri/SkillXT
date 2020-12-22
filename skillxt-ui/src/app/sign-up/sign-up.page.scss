@@ -33,9 +33,8 @@ ion-input:first-child{
 
 ion-input {
   display: block;
-  margin: 5% auto;
+  margin: 5% auto 0;
   border-radius: 15px;
-  //color: var(--ion-color-light);
   color: #0d0d0d;
   background-color: var(--ion-color-four-tint);
   width: 90%;
@@ -49,11 +48,6 @@ ion-button {
   --background: var(--ion-color-primary);
 }
 
-.separator {
-  margin-bottom: 10%;
-  margin-top: 10%;
-}
-
 a {
   margin: 5% auto;
   display: block;
@@ -64,6 +58,12 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
   margin-top: 10%;
+}
+
+span{
+  margin-left: 7%;
+  margin-top: 0.5%;
+  margin-bottom: 5%;
 }

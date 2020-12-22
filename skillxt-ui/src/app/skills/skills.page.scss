@@ -23,8 +23,7 @@ ion-card {
 }
 
 #sides{
-  margin: 0;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 ion-card-header div div:first-child{
@@ -62,4 +61,14 @@ ion-item,{
 
 ion-list{
   background: var(--ion-color-light);
+}
+
+a{
+  text-decoration: none;
+}
+.unselectedA{
+  font-weight: normal;
+}
+.selectedA{
+  font-weight: bold;
 }
