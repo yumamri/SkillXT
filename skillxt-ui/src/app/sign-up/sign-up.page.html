@@ -34,8 +34,8 @@
                     <p>Pays</p>
                 <ion-item>
                     <ion-select #select [value]="country" formControlName="country" placeholder="pays" [(ngModel)]="country"
-                    [selectedText]="country" (ionChange)="selectChanged(select.value)">
-                        <ion-select-option *ngFor="let country of countries">{{country}}</ion-select-option>
+                    [selectedText]="country" (ionChange)="(select.value)">
+                        <ion-select-option *ngFor="let country of countries | async">{{country.name}}</ion-select-option>
                     </ion-select>
                 </ion-item>
                 </div>

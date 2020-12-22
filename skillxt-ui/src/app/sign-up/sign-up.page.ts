@@ -6,6 +6,7 @@ import {ConfirmedValidator} from "./confirmed.validator";
 import {AlertController} from "@ionic/angular";
 import {CountryService} from "../services/country.service";
 import {Observable} from "rxjs";
+import {Country} from "../api/models/country";
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,7 @@ export class SignUpPage implements OnInit {
   email: string;
   password: string;
   country: string;
-  countries : Observable<Object>;
+  countries : Observable<Country[]>;
 
   title = 'Créer un compte';
 
