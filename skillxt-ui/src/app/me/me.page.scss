@@ -1,0 +1,117 @@
+.flex {
+    height: 100%;
+    width: 100%;
+}
+
+ion-header {
+    --ion-background-color: var(--ion-color-primary);
+}
+
+ion-title {
+    text-align: center;
+    color: var(--ion-color-light);
+}
+
+ion-content {
+    --ion-background-color: var(--ion-color-four);
+}
+
+ion-card {
+    width: 85%;
+    margin: 5% auto;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--ion-color-light);
+}
+
+/**************************************** Dimention ****************************************/
+
+/* Dimention de l'icon pour l'avatar */
+ion-card:nth-child(1) > ion-icon {
+    width: 125px;
+    height: 125px;
+}
+
+/* Dimention icon lieu (Villen, Pays) */
+ion-card:nth-child(1) div ion-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Dimention des imgs (paramètre, modif profile & skill) et des icons (compétence, interet) */
+ion-card:nth-child(2) ion-icon, ion-card img {
+    width: 25px;
+    height: 25px;
+}
+
+/**************************************** Color ****************************************/
+
+/* Couleur des icones (avatar, compétence et interet) */
+ion-icon {
+    color: var(--ion-color-tertiary);
+}
+
+/**************************************** Format ****************************************/
+
+/********** 1er block ("profil") **********/
+
+ion-card:nth-child(1) {
+    text-align: center;
+}
+
+ion-card:nth-child(1) img {
+    position: absolute;
+}
+/* Parametre */
+ion-card:nth-child(1) img:first-of-type {
+    top: 10px;
+    left: 10px;
+}
+/* Modif profile */
+ion-card:nth-child(1) img:last-of-type {
+    top: 10px;
+    right: 10px;
+}
+
+ion-card:nth-child(1) > div {
+    margin: 0 auto 10px auto;
+    width: 200px;
+}
+
+ion-card:nth-child(1) > div > p {
+    margin: 0;
+    font-size: 20px;
+}
+
+ion-card:nth-child(1) > div > div {
+    vertical-align: top;
+    text-align: left;
+}
+
+/********** 2eme block (Compétence et Interet) **********/
+
+ion-card:nth-child(2) > div {
+    display: inline-block;
+}
+
+ion-card:nth-child(2) > div:first-of-type {
+
+}
+
+ion-card:nth-child(2) > div:last-of-type {
+    vertical-align: middle;
+}
+
+ion-card:nth-child(2) span {
+    padding: 3px;
+    border: 1px var(--ion-color-medium) solid;
+    border-radius: 50px;
+}
+
+/********** 3eme block ("A propos...") **********/
+
+ion-card:nth-child(3) {
+    padding: 0 12px;
+    min-height: 150px;
+    text-align: justify;
+}

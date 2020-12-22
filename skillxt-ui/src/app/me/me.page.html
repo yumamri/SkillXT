@@ -1,15 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Moi
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="flex">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-title>
+                Moi
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-<ion-content>
+    <ion-content>
+        <!-- 1er block ("profil") -->
+        <ion-card>
+            <img src="./../../assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <img src="./../../assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png">
 
-  <ion-card>
-    <ion-button color="tertiary" shape="round" size="small" routerLink="/skills"><ion-icon name="add-outline"></ion-icon></ion-button>
-  </ion-card>
+            <div>
+                <p>Prénom NOM</p>
+                <div>
+                    <ion-icon name="pin"></ion-icon><span>Ville, Pays</span>
+                </div>
+            </div>
+        </ion-card>
 
-</ion-content>
+        <!-- 2eme block (Compétence et Interet) -->
+        <ion-card>
+            <div>
+                <div> <!-- Zone des compétence -->
+                    <ion-icon name="bulb"></ion-icon>
+                    <div>
+                        <span>Compétence</span>
+                        <span>Compétence</span>
+                    </div>
+                </div>
+                <div> <!-- Zone des Intérets -->
+                    <ion-icon name="school"></ion-icon>
+                    <div>
+                        <span>Interet</span>
+                        <span>Interet</span>
+                    </div>
+                </div>
+            </div>
+
+            <div> <!-- Bouton de modif des compétence et des interet  -->
+                <img src="./../../assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png">
+            </div>
+        </ion-card>
+
+        <!-- 3eme block ("A propos...") -->
+        <ion-card>
+            <p>A propos...</p>
+        </ion-card>
+    </ion-content>
+</div>
