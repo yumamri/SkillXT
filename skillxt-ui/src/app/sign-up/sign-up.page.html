@@ -17,22 +17,42 @@
 
         <ion-card>
             <form [formGroup]="ionicForm">
-                <ion-input placeholder="nom" formControlName="family" [(ngModel)]="family" ></ion-input>
-                <span class="error" *ngIf="errorControl.family.errors?.required">Family name is required.</span>
+                <div>
+                    <p>nom</p>
+                    <ion-input placeholder="nom" formControlName="family" [(ngModel)]="family" ></ion-input>
+                    <span class="error" *ngIf="errorControl.family.errors?.required">Family name is required.</span>
+                </div>
 
-                <ion-input placeholder="prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
-                <span class="error" *ngIf="errorControl.name.errors?.required">Given name is required.</span>
 
-                <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
-                <span class="error" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
-                <span class="error" *ngIf="errorControl.email.errors?.required">Email is required.</span>
+                <div>
+                    <p>prénom</p>
+                    <ion-input placeholder="prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
+                    <span class="error" *ngIf="errorControl.name.errors?.required">Given name is required.</span>
+                </div>
 
-                <ion-input placeholder="mot de passe" type="password" formControlName="password"></ion-input>
-                <span class="error" *ngIf="errorControl.password.errors?.required">Password is required.</span>
 
-                <ion-input placeholder="confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
-                <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
-                <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Passwords must match.</span>
+                <div>
+                    <p>email</p>
+                    <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
+                    <span class="error" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
+                    <span class="error" *ngIf="errorControl.email.errors?.required">Email is required.</span>
+                </div>
+
+
+                <div>
+                    <p>mot de passe</p>
+                    <ion-input placeholder="mot de passe" type="password" formControlName="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.password.errors?.required">Password is required.</span>
+                </div>
+
+
+                <div>
+                    <p>confirmer le mot de passe</p>
+                    <ion-input placeholder="confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Passwords must match.</span>
+                </div>
+
             </form>
                 <section>
                     <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>

@@ -10,11 +10,6 @@ ion-content{
   --ion-background-color: var(--ion-color-secondary);
 }
 
-div:not(.flex){
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
 .flex {
   height: 100%;
   width: 100%;
@@ -27,13 +22,9 @@ ion-card {
   background-color: var(--ion-color-light);
 }
 
-ion-input:first-child{
-  margin-top: 8%;
-}
-
 ion-input {
   display: block;
-  margin: 5% auto 0;
+  margin: 0 auto;
   border-radius: 15px;
   color: #0d0d0d;
   background-color: var(--ion-color-four-tint);
@@ -42,14 +33,14 @@ ion-input {
 
 ion-button {
   display: block;
-  margin: 10% auto;
+  margin: 10% auto 5%;
   width: 60%;
   color: var(--ion-color-light);
   --background: var(--ion-color-primary);
 }
 
 a {
-  margin: 5% auto;
+  margin: 3% auto;
   display: block;
   text-decoration: none;
 }
@@ -59,11 +50,17 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
-  margin-top: 10%;
+  margin-top: 1%;
 }
 
 span{
   margin-left: 7%;
   margin-top: 0.5%;
   margin-bottom: 5%;
+  color: #989aa2;
+}
+
+p{
+  margin-left: 7%;
+  margin-bottom: 0;
 }
