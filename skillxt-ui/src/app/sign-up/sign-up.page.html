@@ -30,6 +30,15 @@
                     <span class="error" *ngIf="errorControl.name.errors?.required">Le prénom doit être renseigné.</span>
                 </div>
 
+                <div>
+                    <p>Pays</p>
+                <ion-item>
+                    <ion-select #select [value]="country" formControlName="country" placeholder="pays" [(ngModel)]="country"
+                    [selectedText]="country" (ionChange)="selectChanged(select.value)">
+                        <ion-select-option *ngFor="let country of countries">{{country}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                </div>
 
                 <div>
                     <p>Email</p>
@@ -37,7 +46,6 @@
                     <span class="error" *ngIf="errorControl.email.errors?.pattern">Veuillez saisir un email valide.</span>
                     <span class="error" *ngIf="errorControl.email.errors?.required">L'email doit être renseigné.</span>
                 </div>
-
 
                 <div>
                     <p>Mot de passe</p>
