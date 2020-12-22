@@ -51,6 +51,10 @@ ion-icon {
     color: var(--ion-color-tertiary);
 }
 
+ion-icon:last-child{
+    color: #0d0d0d;
+}
+
 /**************************************** Format ****************************************/
 
 /********** 1er block ("profil") **********/
