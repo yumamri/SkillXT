@@ -17,22 +17,50 @@
 
         <ion-card>
             <form [formGroup]="ionicForm">
-                <ion-input placeholder="nom" formControlName="family" [(ngModel)]="family" ></ion-input>
-                <span class="error" *ngIf="errorControl.family.errors?.required">Family name is required.</span>
+                <div>
+                    <p>Nom</p>
+                    <ion-input placeholder="Nom" formControlName="family" [(ngModel)]="family" ></ion-input>
+                    <span class="error" *ngIf="errorControl.family.errors?.required">Le nom doit être renseigné.</span>
+                </div>
 
-                <ion-input placeholder="prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
-                <span class="error" *ngIf="errorControl.name.errors?.required">Given name is required.</span>
 
-                <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
-                <span class="error" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
-                <span class="error" *ngIf="errorControl.email.errors?.required">Email is required.</span>
+                <div>
+                    <p>Prénom</p>
+                    <ion-input placeholder="Prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
+                    <span class="error" *ngIf="errorControl.name.errors?.required">Le prénom doit être renseigné.</span>
+                </div>
 
-                <ion-input placeholder="mot de passe" type="abc" formControlName="password"></ion-input>
-                <span class="error" *ngIf="errorControl.password.errors?.required">Password is required.</span>
+                <div>
+                    <p>Pays</p>
+                <ion-item>
+                    <ion-select #select [value]="country" formControlName="country" placeholder="pays" [(ngModel)]="country"
+                    [selectedText]="country" (ionChange)="(select.value)">
+                        <ion-select-option *ngFor="let country of countries | async">{{country.name}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                </div>
 
-                <ion-input placeholder="confirmer le mot de passe" type="abc" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
-                <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
-                <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Passwords must match.</span>
+                <div>
+                    <p>Email</p>
+                    <ion-input placeholder="Email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
+                    <span class="error" *ngIf="errorControl.email.errors?.pattern">Veuillez saisir un email valide.</span>
+                    <span class="error" *ngIf="errorControl.email.errors?.required">L'email doit être renseigné.</span>
+                </div>
+
+                <div>
+                    <p>Mot de passe</p>
+                    <ion-input placeholder="Mot de passe" type="password" formControlName="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.password.errors?.required">Le mot de passe doit être renseigné.</span>
+                </div>
+
+
+                <div>
+                    <p>Confirmer le mot de passe</p>
+                    <ion-input placeholder="Confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Le mot de passe doit être renseigné.</span>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Les mots de passe doivent être identique</span>
+                </div>
+
             </form>
                 <section>
                     <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
