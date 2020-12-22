@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1" text="retour"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/me" text="retour"></ion-back-button>
     </ion-buttons>
-    <ion-title>Ajout Compétences</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -13,37 +13,14 @@
     <ion-card-header>
       <div id="sides">
         <div>
-          <a>Compétences</a>
+          <a [ngClass]="[btnStyleComp]" (click)="dispComp()">Compétences</a>
         </div>
         <div>
-          <a>Intérêts</a>
+          <a [ngClass]="[btnStyleInt]" (click)="dispInt()">Intérêts</a>
         </div>
       </div>
     </ion-card-header>
-    <ion-card-content>
-      <div id ="research">
-        <div>
-          <ion-input placeholder="Ex: Piano"></ion-input>
-        </div>
-        <div>
-          <a>Recherche</a>
-        </div>
-      </div>
-      <ion-toolbar>
-        <ion-list>
-          <ion-item>
-            <ion-label>Intérêts</ion-label>
-            <ion-toggle color="primary"></ion-toggle>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Intérêts</ion-label>
-            <ion-toggle color="primary"></ion-toggle>
-          </ion-item>
-
-        </ion-list>
-      </ion-toolbar>
-
-    </ion-card-content>
+    <app-interests *ngIf="!show"></app-interests>
+    <app-competences *ngIf="show"></app-competences>
   </ion-card>
 </ion-content>

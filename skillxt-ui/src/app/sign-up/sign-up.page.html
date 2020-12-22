@@ -32,7 +32,7 @@
 
                 <ion-input placeholder="confirmer le mot de passe" type="abc" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
                 <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
-                <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Password must match.</span>
+                <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Passwords must match.</span>
             </form>
                 <section>
                     <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
