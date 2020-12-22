@@ -1,5 +1,6 @@
 package ginb.skillxt.domain.service;
 
+import ginb.skillxt.domain.exception.BadEmailFormatException;
 import ginb.skillxt.domain.exception.BadRequestException;
 import ginb.skillxt.domain.exception.BusinessException;
 import ginb.skillxt.domain.exception.UserExistsException;
@@ -28,14 +29,19 @@ public class UserService {
             userRepository.save(dtoMapper.map(userDTO));
         }
     }
-
-    private void checkParams(UserDTO userDTO) throws BadRequestException {
+    private boolean isEmail(String email) {
+        String regex = "[a-z0-9._-]+@[a-z0-9]+.[a-z]{2,3}$";
+        return email.matches(regex);
+    }
+    private void checkParams(UserDTO userDTO) throws BusinessException {
         if (!StringUtils.hasText(userDTO.getName())||
                 !StringUtils.hasText(userDTO.getFamily())||
                 !StringUtils.hasText(userDTO.getEmail())||
                 !StringUtils.hasText(userDTO.getCountry())||
                 !StringUtils.hasText(userDTO.getPassword())) {
             throw new BadRequestException();
+        } else if (!isEmail(userDTO.getEmail())) {
+            throw new BadEmailFormatException();
         }
     }
 }
