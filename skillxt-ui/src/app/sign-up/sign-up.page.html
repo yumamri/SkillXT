@@ -18,39 +18,39 @@
         <ion-card>
             <form [formGroup]="ionicForm">
                 <div>
-                    <p>nom</p>
-                    <ion-input placeholder="nom" formControlName="family" [(ngModel)]="family" ></ion-input>
-                    <span class="error" *ngIf="errorControl.family.errors?.required">Family name is required.</span>
+                    <p>Nom</p>
+                    <ion-input placeholder="Nom" formControlName="family" [(ngModel)]="family" ></ion-input>
+                    <span class="error" *ngIf="errorControl.family.errors?.required">Le nom doit être renseigné.</span>
                 </div>
 
 
                 <div>
-                    <p>prénom</p>
-                    <ion-input placeholder="prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
-                    <span class="error" *ngIf="errorControl.name.errors?.required">Given name is required.</span>
+                    <p>Prénom</p>
+                    <ion-input placeholder="Prénom" formControlName="name" [(ngModel)]="name" ></ion-input>
+                    <span class="error" *ngIf="errorControl.name.errors?.required">Le prénom doit être renseigné.</span>
                 </div>
 
 
                 <div>
-                    <p>email</p>
-                    <ion-input placeholder="email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
-                    <span class="error" *ngIf="errorControl.email.errors?.pattern">Please provide valid email id.</span>
-                    <span class="error" *ngIf="errorControl.email.errors?.required">Email is required.</span>
+                    <p>Email</p>
+                    <ion-input placeholder="Email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
+                    <span class="error" *ngIf="errorControl.email.errors?.pattern">Veuillez saisir un email valide.</span>
+                    <span class="error" *ngIf="errorControl.email.errors?.required">L'email doit être renseigné.</span>
                 </div>
 
 
                 <div>
-                    <p>mot de passe</p>
-                    <ion-input placeholder="mot de passe" type="password" formControlName="password"></ion-input>
-                    <span class="error" *ngIf="errorControl.password.errors?.required">Password is required.</span>
+                    <p>Mot de passe</p>
+                    <ion-input placeholder="Mot de passe" type="password" formControlName="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.password.errors?.required">Le mot de passe doit être renseigné.</span>
                 </div>
 
 
                 <div>
-                    <p>confirmer le mot de passe</p>
-                    <ion-input placeholder="confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
-                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Password is required.</span>
-                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Password and confirm Passwords must match.</span>
+                    <p>Confirmer le mot de passe</p>
+                    <ion-input placeholder="Confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Le mot de passe doit être renseigné.</span>
+                    <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Les mots de passe doivent être identique</span>
                 </div>
 
             </form>
