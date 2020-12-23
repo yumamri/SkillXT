@@ -1,5 +1,6 @@
 package ginb.skillxt.rest;
 
+import ginb.skillxt.domain.exception.BadEmailFormatException;
 import ginb.skillxt.domain.exception.BadRequestException;
 import ginb.skillxt.domain.exception.BusinessException;
 import ginb.skillxt.domain.exception.UserExistsException;
@@ -54,6 +55,10 @@ public class UserController implements UsersApi {
         } else if (e instanceof BadRequestException) {
             return ResponseEntity
                     .badRequest()
+                    .build();
+        } else if (e instanceof BadEmailFormatException) {
+            return ResponseEntity
+                    .status(HttpStatus.PRECONDITION_FAILED)
                     .build();
         } else {
             return ResponseEntity

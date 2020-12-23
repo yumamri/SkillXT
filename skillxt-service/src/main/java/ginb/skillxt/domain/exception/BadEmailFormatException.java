@@ -1,4 +1,4 @@
 package ginb.skillxt.domain.exception;
 
-public class BadEmailFormatException extends BusinessException{
+public class BadEmailFormatException extends BusinessException {
 }
