@@ -1,13 +1,13 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {UserDto} from "../api/models/user-dto";
-import {UserService} from "../services/user.service";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import {ConfirmedValidator} from "./confirmed.validator";
-import {AlertController} from "@ionic/angular";
-import {CountryService} from "../services/country.service";
-import {Observable} from "rxjs";
-import {Country} from "../api/models/country";
-import {HttpErrorResponse} from "@angular/common/http";
+import {UserDto} from '../api/models/user-dto';
+import {UserService} from '../services/user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {ConfirmedValidator} from './confirmed.validator';
+import {AlertController} from '@ionic/angular';
+import {CountryService} from '../services/country.service';
+import {Observable} from 'rxjs';
+import {Country} from '../api/models/country';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -20,8 +20,9 @@ export class SignUpPage implements OnInit {
   family: string;
   email: string;
   password: string;
+  confirmPassword: string;
   country: string;
-  countries : Observable<Country[]>;
+  countries: Observable<Country[]>;
 
   title = 'Créer un compte';
 
@@ -44,7 +45,7 @@ export class SignUpPage implements OnInit {
 
   ngOnInit() {
     this.countries = this.countryService.getAllCountries();
-    this.country = "France";
+    this.country = 'France';
   }
   get errorControl() {
     return this.ionicForm.controls;
@@ -77,26 +78,41 @@ export class SignUpPage implements OnInit {
     });
     await alert.present();
   }
-  onSave() {
-    let user: UserDto = {
-      name: this.name,
-      family: this.family,
-      email: this.email,
-      password: this.password,
-      country: this.country,
+  async inequalsPasswords() {
+    const alert = await this.alertController.create({
+      header: 'Attention',
+      message: 'Passwords needs to be the same',
+    });
+    await alert.present();
+  }
+  async onSave() {
+    if (this.confirmPassword != this.password) {
+      const alert = await this.alertController.create({
+        header: 'Attention',
+        message: 'Passwords needs to be the same',
+      });
+      await alert.present();
+    } else {
+      const user: UserDto = {
+        name: this.name,
+        family: this.family,
+        email: this.email,
+        password: this.password,
+        country: this.country,
+      };
+      this.userService.addUser(user).subscribe(() => {
+        // TODO: boolean okay to put dialog somewhere else
+        this.userCreated();
+        this.ionicForm.reset();
+      }, error => {
+        if (error instanceof HttpErrorResponse && error.status === 412) {
+          this.badEmailFormat();
+        } else if (error instanceof HttpErrorResponse && error.status === 400) {
+          this.missingField();
+        } else if (error instanceof HttpErrorResponse && error.status === 409) {
+          this.userExist();
+        }
+      });
     }
-    this.userService.addUser(user).subscribe(()=>{
-      // TODO: boolean okay to put dialog somewhere else
-      this.userCreated();
-      this.ionicForm.reset();
-    }, error => {
-      if (error instanceof HttpErrorResponse && error.status == 412) {
-        this.badEmailFormat();
-      } else if (error instanceof HttpErrorResponse && error.status == 400) {
-        this.missingField();
-      } else if (error instanceof HttpErrorResponse && error.status == 409) {
-        this.userExist();
-      }
-    })
   }
 }
