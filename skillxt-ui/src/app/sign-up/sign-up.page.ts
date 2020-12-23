@@ -78,15 +78,9 @@ export class SignUpPage implements OnInit {
     });
     await alert.present();
   }
-  async inequalsPasswords() {
-    const alert = await this.alertController.create({
-      header: 'Attention',
-      message: 'Passwords needs to be the same',
-    });
-    await alert.present();
-  }
+
   async onSave() {
-    if (this.confirmPassword != this.password) {
+    if (this.confirmPassword !== this.password) {
       const alert = await this.alertController.create({
         header: 'Attention',
         message: 'Passwords needs to be the same',
