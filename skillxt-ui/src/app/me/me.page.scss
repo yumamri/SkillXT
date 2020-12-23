@@ -24,7 +24,7 @@ ion-card {
     background-color: var(--ion-color-light);
 }
 
-/**************************************** Dimention ****************************************/
+/**************************************** Dimension : image / icon ****************************************/
 
 /* Dimention de l'icon pour l'avatar */
 ion-card:nth-child(1) > ion-icon {
@@ -68,21 +68,21 @@ ion-card:nth-child(1) ion-img {
 }
 /* Parametre */
 ion-card:nth-child(1) ion-img:first-of-type {
-    top: 2%;
-    left: 2%;
+    top: 3%;
+    left: 3%;
 }
 /* Modif profile */
 ion-card:nth-child(1) ion-img:last-of-type {
-    top: 2%;
-    right: 2%;
+    top: 3%;
+    right: 3%;
 }
 
 ion-card:nth-child(1) > div {
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
     width: 65%;
 }
 
-/********** 2eme block (Compétence et Interet) **********/
+/********** 2eme block (Competence et Interet) **********/
 
 ion-card:nth-child(2) > div {
     display: inline-block;
@@ -105,6 +105,7 @@ ion-card:nth-child(2) span {
 /********** 3eme block ("A propos...") **********/
 
 ion-card:nth-child(3) {
-    min-height: 150px;
+    margin-bottom: 22%;
+    min-height: 25%;
     text-align: justify;
 }
