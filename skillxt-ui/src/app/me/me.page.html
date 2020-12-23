@@ -10,16 +10,16 @@
     <ion-content>
         <!-- 1er block ("profil") -->
         <ion-card>
-            <img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png">
+            <ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img>
             <ion-icon name="person-circle-outline"></ion-icon>
-            <img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png">
+            <ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img>
 
-            <div>
-                <p>Prénom NOM</p>
-                <div>
-                    <ion-icon name="pin"></ion-icon><span>Ville, Pays</span>
-                </div>
-            </div>
+            <ion-card-header>
+                <ion-card-title>Prénom NOM</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-icon name="pin"></ion-icon>Ville, Pays
+            </ion-card-content>
         </ion-card>
 
         <!-- 2eme block (Compétence et Interet) -->
@@ -42,17 +42,18 @@
             </div>
 
             <div> <!-- Bouton de modif des compétence et des interet  -->
-                <img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png">
+                <ion-button color="tertiary" shape="round" size="small" routerLink="/skills"><ion-icon name="add-outline"></ion-icon></ion-button>
+                <!--<img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png">-->
             </div>
         </ion-card>
 
         <!-- 3eme block ("A propos...") -->
         <ion-card>
-            <p>A propos...</p>
-        </ion-card>
-
-        <ion-card>
-            <ion-button color="tertiary" shape="round" size="small" routerLink="/skills"><ion-icon name="add-outline"></ion-icon></ion-button>
+            <ion-card-content>A propos...</ion-card-content>
         </ion-card>
     </ion-content>
 </div>
+
+
+<!-- Pour Moi -->
+<!-- 300 - 635 -->

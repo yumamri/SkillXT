@@ -39,7 +39,7 @@ ion-card:nth-child(1) div ion-icon {
 }
 
 /* Dimention des imgs (paramètre, modif profile & skill) et des icons (compétence, interet) */
-ion-card:nth-child(2) ion-icon, ion-card img {
+ion-card:nth-child(2) ion-icon, ion-card ion-img {
     width: 25px;
     height: 25px;
 }
@@ -63,33 +63,23 @@ ion-card:nth-child(1) {
     text-align: center;
 }
 
-ion-card:nth-child(1) img {
+ion-card:nth-child(1) ion-img {
     position: absolute;
 }
 /* Parametre */
-ion-card:nth-child(1) img:first-of-type {
-    top: 10px;
-    left: 10px;
+ion-card:nth-child(1) ion-img:first-of-type {
+    top: 2%;
+    left: 2%;
 }
 /* Modif profile */
-ion-card:nth-child(1) img:last-of-type {
-    top: 10px;
-    right: 10px;
+ion-card:nth-child(1) ion-img:last-of-type {
+    top: 2%;
+    right: 2%;
 }
 
 ion-card:nth-child(1) > div {
     margin: 0 auto 10px auto;
-    width: 200px;
-}
-
-ion-card:nth-child(1) > div > p {
-    margin: 0;
-    font-size: 20px;
-}
-
-ion-card:nth-child(1) > div > div {
-    vertical-align: top;
-    text-align: left;
+    width: 65%;
 }
 
 /********** 2eme block (Compétence et Interet) **********/
@@ -115,7 +105,6 @@ ion-card:nth-child(2) span {
 /********** 3eme block ("A propos...") **********/
 
 ion-card:nth-child(3) {
-    padding: 0 12px;
     min-height: 150px;
     text-align: justify;
 }
