@@ -7,6 +7,7 @@ import {AlertController} from "@ionic/angular";
 import {CountryService} from "../services/country.service";
 import {Observable} from "rxjs";
 import {Country} from "../api/models/country";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-sign-up',
@@ -48,10 +49,31 @@ export class SignUpPage implements OnInit {
   get errorControl() {
     return this.ionicForm.controls;
   }
-  async presentAlert() {
+  async userCreated() {
     const alert = await this.alertController.create({
       header: 'Success',
       message: 'User has been created with the email',
+    });
+    await alert.present();
+  }
+  async badEmailFormat() {
+    const alert = await this.alertController.create({
+      header: 'Failed',
+      message: 'Bad email format',
+    });
+    await alert.present();
+  }
+  async missingField() {
+    const alert = await this.alertController.create({
+      header: 'Failed',
+      message: 'Missing field',
+    });
+    await alert.present();
+  }
+  async userExist() {
+    const alert = await this.alertController.create({
+      header: 'Attention',
+      message: 'User with that email already exists',
     });
     await alert.present();
   }
@@ -65,7 +87,16 @@ export class SignUpPage implements OnInit {
     }
     this.userService.addUser(user).subscribe(()=>{
       // TODO: boolean okay to put dialog somewhere else
-      this.presentAlert();
+      this.userCreated();
+      this.ionicForm.reset();
+    }, error => {
+      if (error instanceof HttpErrorResponse && error.status == 412) {
+        this.badEmailFormat();
+      } else if (error instanceof HttpErrorResponse && error.status == 400) {
+        this.missingField();
+      } else if (error instanceof HttpErrorResponse && error.status == 409) {
+        this.userExist();
+      }
     })
   }
 }
