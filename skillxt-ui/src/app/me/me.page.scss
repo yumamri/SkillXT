@@ -26,7 +26,7 @@ ion-card {
 
 /**************************************** Dimension : image / icon ****************************************/
 
-/* Dimention de l'icon pour l'avatar */
+/* Dimensions de l'icon pour l'avatar */
 ion-card:nth-child(1) > ion-icon {
     width: 125px;
     height: 125px;
@@ -67,19 +67,16 @@ ion-card:nth-child(1) ion-img {
     position: absolute;
 }
 /* Parametre */
-ion-card:nth-child(1) ion-img:first-of-type {
-    top: 3%;
-    left: 3%;
+ion-card:nth-child(1) a:first-of-type {
 }
-/* Modif profile */
-ion-card:nth-child(1) ion-img:last-of-type {
-    top: 3%;
-    right: 3%;
+/* Modif profil */
+ion-card:nth-child(1) div:last-of-type {
+    top: 0;
+    right: 0;
 }
 
 ion-card:nth-child(1) > div {
     margin: 0 auto;
-    width: 65%;
 }
 
 /********** 2eme block (Competence et Interet) **********/

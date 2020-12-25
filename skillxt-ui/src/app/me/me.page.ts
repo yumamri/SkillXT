@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MePage {
 
+  name = 'prénom';
+  family = 'NOM';
+  ville = 'ville';
+  pays = 'pays';
+
   constructor() {}
 
 }

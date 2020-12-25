@@ -52,29 +52,29 @@ export class SignUpPage implements OnInit {
   }
   async userCreated() {
     const alert = await this.alertController.create({
-      header: 'Success',
-      message: 'User has been created with the email',
+      header: 'Succès',
+      message: 'Votre compte est bien enregistré !',
     });
     await alert.present();
   }
   async badEmailFormat() {
     const alert = await this.alertController.create({
-      header: 'Failed',
-      message: 'Bad email format',
+      header: 'Oups',
+      message: 'Format du mail incorrect.',
     });
     await alert.present();
   }
   async missingField() {
     const alert = await this.alertController.create({
-      header: 'Failed',
-      message: 'Missing field',
+      header: 'Oups',
+      message: 'Un ou plusieurs champs sont manquants ou incomplets.',
     });
     await alert.present();
   }
   async userExist() {
     const alert = await this.alertController.create({
       header: 'Attention',
-      message: 'User with that email already exists',
+      message: 'Cet utilisateur existe déjà.',
     });
     await alert.present();
   }
@@ -83,7 +83,7 @@ export class SignUpPage implements OnInit {
     if (this.confirmPassword !== this.password) {
       const alert = await this.alertController.create({
         header: 'Attention',
-        message: 'Passwords needs to be the same',
+        message: 'Les mots de passe doivent être identique.',
       });
       await alert.present();
     } else {

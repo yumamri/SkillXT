@@ -16,13 +16,23 @@
     <img src="./assets/images/logoSXT.png">
 
     <ion-card>
-      <div>
-        <ion-input placeholder="email" type="email"></ion-input>
-      </div>
-      <ion-input placeholder="mot de passe" type="password"></ion-input>
+      <form [formGroup]="ionicForm">
+        <div>
+          <p>Email</p>
+          <ion-input placeholder="Email" type="email" formControlName="email" [(ngModel)]="email" ></ion-input>
+          <span class="error" *ngIf="errorControl.email.errors?.pattern">Veuillez saisir un email valide.</span>
+          <span class="error" *ngIf="errorControl.email.errors?.required">L'email doit être renseigné.</span>
+        </div>
+
+        <div>
+          <p>Mot de passe</p>
+          <ion-input placeholder="Mot de passe" type="password" formControlName="password"></ion-input>
+          <span class="error" *ngIf="errorControl.password.errors?.required">Le mot de passe doit être renseigné.</span>
+        </div>
+      </form>
 
       <section>
-        <ion-button class="ion-text-center" shape="round">Se connecter</ion-button>
+        <ion-button class="ion-text-center" shape="round" (click)="onSave()">Se connecter</ion-button>
       </section>
       <a class="ion-text-center" routerLink="/sign-up">Créer un compte</a>
     </ion-card>

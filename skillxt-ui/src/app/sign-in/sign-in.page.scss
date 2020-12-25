@@ -30,9 +30,7 @@ ion-input {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5%;
   border-radius: 15px;
-  //color: var(--ion-color-light);
   color: #0d0d0d;
   background-color: var(--ion-color-four-tint);
   width: 90%;
@@ -40,17 +38,16 @@ ion-input {
 
 ion-button {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10% auto 5%;
   width: 60%;
   color: var(--ion-color-light);
   --background: var(--ion-color-primary);
 }
 
 a {
-  margin: 2% auto;
   display: block;
   text-decoration: none;
+  margin: 3% auto 10%;
 }
 
 img {
@@ -59,4 +56,19 @@ img {
   margin-right: auto;
   width: 50%;
   margin-top: 10%;
+}
+
+span{
+  margin-left: 7%;
+  margin-top: 0.5%;
+  margin-bottom: 5%;
+  color: #989aa2;
+}
+
+p{
+  margin-left: 7%;
+  margin-bottom: 0;
+  color: var(--ion-color-primary);
+  font-size: 110%;
+  font-weight: bold;
 }
