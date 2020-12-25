@@ -39,7 +39,8 @@ ion-card:nth-child(1) div ion-icon {
 }
 
 /* Dimention des imgs (paramètre, modif profile & skill) et des icons (compétence, interet) */
-ion-card:nth-child(2) ion-icon, ion-card ion-img {
+ion-card:nth-child(2) ion-icon,
+ion-card ion-img {
     width: 25px;
     height: 25px;
 }
@@ -63,38 +64,46 @@ ion-card:nth-child(1) {
     text-align: center;
 }
 
-ion-card:nth-child(1) ion-img {
+ion-card:nth-child(1) a {
     position: absolute;
 }
 /* Parametre */
 ion-card:nth-child(1) a:first-of-type {
+    top: 4%;
+    left: 4%;
 }
-/* Modif profil */
-ion-card:nth-child(1) div:last-of-type {
-    top: 0;
-    right: 0;
+/* Modif profile */
+ion-card:nth-child(1) a:last-of-type {
+    top: 4%;
+    right: 4%;
 }
 
 ion-card:nth-child(1) > div {
     margin: 0 auto;
+    width: 65%;
 }
 
 /********** 2eme block (Competence et Interet) **********/
 
 ion-card:nth-child(2) > div {
-    display: inline-block;
+    width: 100%;
 }
 
-ion-card:nth-child(2) > div:first-of-type {
-
+ion-card:nth-child(2) > div,
+ion-card:nth-child(2) > div > div > div{
+    display: flex;
 }
 
-ion-card:nth-child(2) > div:last-of-type {
-    vertical-align: middle;
+ion-card:nth-child(2) > div > div:first-of-type {
+    width: 90%;
+}
+
+ion-card:nth-child(2) > div > div:last-of-type {
+    width: 10%;
 }
 
 ion-card:nth-child(2) span {
-    padding: 3px;
+    padding: 2px;
     border: 1px var(--ion-color-medium) solid;
     border-radius: 50px;
 }
