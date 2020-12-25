@@ -10,40 +10,53 @@
     <ion-content>
         <!-- 1er block ("profil") -->
         <ion-card>
-            <ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img>
+            <a shape="round" routerLink="">
+                <ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img>
+            </a>
+
             <ion-icon name="person-circle-outline"></ion-icon>
-            <ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img>
+
+            <a shape="round" routerLink="">
+                <ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img>
+            </a>
 
             <ion-card-header>
                 <ion-card-title>Prénom NOM</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-                <ion-icon name="pin"></ion-icon>Ville, Pays
+                <ion-icon name="pin"></ion-icon>
+                Ville, Pays
             </ion-card-content>
         </ion-card>
 
         <!-- 2eme block (Compétence et Interet) -->
         <ion-card>
             <div>
-                <div> <!-- Zone des compétence -->
-                    <ion-icon name="bulb"></ion-icon>
+                <div>
                     <div>
-                        <span>Compétence</span>
-                        <span>Compétence</span>
+                        <div>
+                            <ion-icon name="bulb"></ion-icon>
+                        </div>
+                        <div>
+                            <span>Compétence</span>
+                            <span>Compétence</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <ion-icon name="school"></ion-icon>
+                        </div>
+                        <div>
+                            <span>Interet</span>
+                            <span>Interet</span>
+                        </div>
                     </div>
                 </div>
-                <div> <!-- Zone des Intérets -->
-                    <ion-icon name="school"></ion-icon>
-                    <div>
-                        <span>Interet</span>
-                        <span>Interet</span>
-                    </div>
+                <div>
+                    <a shape="round" routerLink="/skills">
+                        <ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img>
+                    </a>
                 </div>
-            </div>
-
-            <div> <!-- Bouton de modif des compétence et des interet  -->
-                <ion-button color="tertiary" shape="round" size="small" routerLink="/skills"><ion-icon name="add-outline"></ion-icon></ion-button>
-                <!--<img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png">-->
             </div>
         </ion-card>
 
@@ -57,3 +70,9 @@
 
 <!-- Pour Moi -->
 <!-- 300 - 635 -->
+
+<!--
+<ion-button color="tertiary" shape="round" size="small" routerLink="/skills">
+    <ion-icon name="add-outline"></ion-icon>
+</ion-button>
+-->
