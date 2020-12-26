@@ -19,3 +19,4 @@
 - **ng un/install -g @angular/cli** : dés/installer la nouvelle version de CLI d'angular (à installer)
 - **ng serve** : lancer l'application (il faut être dans le dossier UI)
 - **ng g services services/user** : 
+- **ng g component nom** : générer un nouveau composant
