@@ -52,10 +52,6 @@ ion-icon {
     color: var(--ion-color-tertiary);
 }
 
-ion-icon:last-child{
-    color: #0d0d0d;
-}
-
 /**************************************** Format ****************************************/
 
 /********** 1er block ("profil") **********/
@@ -102,7 +98,7 @@ ion-card:nth-child(2) > div > div:last-of-type {
     width: 10%;
 }
 
-ion-card:nth-child(2) span {
+ion-card:nth-child(2) ion-label {
     padding: 2px;
     border: 1px var(--ion-color-medium) solid;
     border-radius: 50px;

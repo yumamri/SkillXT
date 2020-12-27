@@ -11,6 +11,7 @@ export class MePage {
   family = 'NOM';
   ville = 'ville';
   pays = 'pays';
+  propos = 'A propos ...';
 
   constructor() {}
 
