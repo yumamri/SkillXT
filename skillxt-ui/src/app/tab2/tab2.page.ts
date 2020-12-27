@@ -1,5 +1,12 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {element} from 'protractor';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+
+} from '@angular/core';
+
 
 @Component({
   selector: 'app-tab2',
@@ -8,10 +15,10 @@ import {element} from 'protractor';
 })
 export class Tab2Page implements OnInit{
 
+  constructor(private renderer: Renderer2) {}
+
   array: string[] = ['abc', 'def', 'ghi'];
   @ViewChild('div') div: ElementRef;
-
-  constructor(private renderer: Renderer2) {}
 
   refresh() {
     this.array.forEach(element => {
@@ -24,5 +31,4 @@ export class Tab2Page implements OnInit{
   ngOnInit(): void {
     console.log('hello');
   }
-
 }

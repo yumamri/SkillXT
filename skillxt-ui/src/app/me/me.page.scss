@@ -103,6 +103,13 @@ ion-card:nth-child(2) ion-label {
     border: 1px var(--ion-color-medium) solid;
     border-radius: 50px;
 }
+.buble{
+    width: 90%;
+}
+ion-label{
+    overflow: hidden;
+    white-space: initial;
+}
 
 /********** 3eme block ("A propos...") **********/
 

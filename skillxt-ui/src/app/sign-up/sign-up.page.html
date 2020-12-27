@@ -47,21 +47,22 @@
 
                 <div>
                     <p>Mot de passe</p>
-                    <ion-input placeholder="Mot de passe" type="password" formControlName="password"></ion-input>
+                    <ion-input placeholder="Mot de passe" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
                     <span class="error" *ngIf="errorControl.password.errors?.required">Le mot de passe doit être renseigné.</span>
+                    <span class="error" *ngIf="errorControl.password.errors?.minlength">Le mot de passe doit contenir au moins 6 caractères.</span>
                 </div>
 
 
                 <div>
                     <p>Confirmer le mot de passe</p>
-                    <ion-input placeholder="Confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="password"></ion-input>
+                    <ion-input placeholder="Confirmer le mot de passe" type="password" formControlName="confirmPassword" [(ngModel)]="confirmPassword"></ion-input>
                     <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Le mot de passe doit être renseigné.</span>
                     <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Les mots de passe doivent être identique</span>
                 </div>
 
             </form>
                 <section>
-                    <ion-button shape="round" (click)="onSave()">Créer un compte</ion-button>
+                    <ion-button shape="round" [disabled]="!ionicForm.valid" (click)="onSave()">Créer un compte</ion-button>
                 </section>
             <a class="ion-text-center" routerLink="/sign-in">Se connecter</a>
         </ion-card>

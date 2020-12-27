@@ -35,7 +35,7 @@ export class SignUpPage implements OnInit {
           family: ['', [Validators.required]],
           name: ['', [Validators.required]],
           country: [''],
-          password: ['', [Validators.required]],
+          password: ['', [Validators.required, Validators.minLength(6)]],
           confirmPassword: ['', [Validators.required]],
           email: ['', [Validators.required, Validators.pattern('[a-z0-9._-]+@[a-z0-9]+.[a-z]{2,3}$')]]
         }, {
@@ -80,13 +80,6 @@ export class SignUpPage implements OnInit {
   }
 
   async onSave() {
-    if (this.confirmPassword !== this.password) {
-      const alert = await this.alertController.create({
-        header: 'Attention',
-        message: 'Les mots de passe doivent être identique.',
-      });
-      await alert.present();
-    } else {
       const user: UserDto = {
         name: this.name,
         family: this.family,
@@ -108,5 +101,4 @@ export class SignUpPage implements OnInit {
         }
       });
     }
-  }
 }
