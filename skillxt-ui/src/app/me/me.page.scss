@@ -92,7 +92,7 @@ ion-card:nth-child(2) > div > div > div {
 }
 
 ion-card:nth-child(2) > div > div > div {
-    margin: 5% 0;
+    margin: 4% 0;
 }
 
 ion-card:nth-child(2) > div > div:first-of-type {
@@ -105,7 +105,7 @@ ion-card:nth-child(2) > div > div:last-of-type {
 }
 
 ion-card:nth-child(2) > div > div:last-of-type > div {
-    margin-right: 0;
+    right: 0;
     /* Pour le centrer verticalment l'img "+" */
     position: absolute;
     top: 50%; /* poussé de la moitié de hauteur du référent */
@@ -113,7 +113,7 @@ ion-card:nth-child(2) > div > div:last-of-type > div {
 }
 
 .buble {
-    margin: 5px 2%;
+    margin: 2%;
     width: 84%;
 }
 
