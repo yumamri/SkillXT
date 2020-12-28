@@ -82,12 +82,17 @@ ion-card:nth-child(1) > div {
 /********** 2eme block (Competence et Interet) **********/
 
 ion-card:nth-child(2) > div {
-    width: 100%;
+    margin: 2%;
+    width: 96%;
 }
 
 ion-card:nth-child(2) > div,
-ion-card:nth-child(2) > div > div > div{
+ion-card:nth-child(2) > div > div > div {
     display: flex;
+}
+
+ion-card:nth-child(2) > div > div > div {
+    margin: 5% 0;
 }
 
 ion-card:nth-child(2) > div > div:first-of-type {
@@ -96,19 +101,31 @@ ion-card:nth-child(2) > div > div:first-of-type {
 
 ion-card:nth-child(2) > div > div:last-of-type {
     width: 10%;
+    position: relative; // /* Pour le centrer verticalment l'img "+" */
 }
 
-ion-card:nth-child(2) ion-label {
+ion-card:nth-child(2) > div > div:last-of-type > div {
+    margin-right: 0;
+    /* Pour le centrer verticalment l'img "+" */
+    position: absolute;
+    top: 50%; /* poussé de la moitié de hauteur du référent */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+
+.buble {
+    margin: 5px 2%;
+    width: 84%;
+}
+
+.buble ion-label {
+    margin: 10px 1px;
     padding: 2px;
-    border: 1px var(--ion-color-medium) solid;
-    border-radius: 50px;
-}
-.buble{
-    width: 90%;
-}
-ion-label{
+
     overflow: hidden;
     white-space: initial;
+
+    border: 1px var(--ion-color-medium) solid;
+    border-radius: 50px;
 }
 
 /********** 3eme block ("A propos...") **********/
