@@ -1,17 +1,32 @@
 package ginb.skillxt.persistence.entity;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
-//@Entity
+@Entity
+@Table(name = "skill")
+@Embeddable
 public class SkillEntity {
-    private int id;
-    private String title;
-    private SkillTypeEntity idType;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int id;
 
-    public SkillEntity(int id, String title, SkillTypeEntity idType) {
+    @Column(name = "title")
+    String title;
+
+    @ManyToMany(mappedBy = "interestList")
+    private Set<UserEntity> userInterest = new HashSet<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
-        this.title = title;
-        this.idType = idType;
     }
 
     public String getTitle() {
@@ -22,12 +37,12 @@ public class SkillEntity {
         this.title = title;
     }
 
-    public SkillTypeEntity getIdType() {
-        return idType;
+    public Set<UserEntity> getUserInterest() {
+        return userInterest;
     }
 
-    public void setIdType(SkillTypeEntity idType) {
-        this.idType = idType;
+    public void setUserInterest(Set<UserEntity> userInterest) {
+        this.userInterest = userInterest;
     }
 
     @Override

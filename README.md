@@ -12,7 +12,10 @@
 - **npm install** : installe node modules
 - **npm install ng-openapi-gen** : 
 - **npm install npm-run-all --save-dev** : 
-- **npm run client-gen** : 
+- **npm run client-gen** :
+#### Code généré  
+- **run-s client-gen prod**
+- **ng-openapi-gen --input ../skillxt-api/skillxt-api.yaml --output src/app/api**
 
 ### Angular
 - **ng un/install -g angular -cli** : dés/installer l'ancien CLI d'angular (à désinstaller)

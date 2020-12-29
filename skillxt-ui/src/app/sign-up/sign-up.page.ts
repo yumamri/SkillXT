@@ -6,7 +6,7 @@ import {ConfirmedValidator} from './confirmed.validator';
 import {AlertController} from '@ionic/angular';
 import {CountryService} from '../services/country.service';
 import {Observable} from 'rxjs';
-import {Country} from '../api/models/country';
+import {Country} from './country';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -88,7 +88,6 @@ export class SignUpPage implements OnInit {
         country: this.country,
       };
       this.userService.addUser(user).subscribe(() => {
-        // TODO: boolean okay to put dialog somewhere else
         this.userCreated();
         this.ionicForm.reset();
       }, error => {

@@ -3,8 +3,9 @@ package ginb.skillxt.persistence.entity;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -31,6 +32,27 @@ public class UserEntity {
     @Column(name = "country")
     String country;
 
+    @Column(name = "about")
+    String about;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "interest",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_skill")
+    )
+    private Set<SkillEntity> interestList = new HashSet<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -55,6 +77,10 @@ public class UserEntity {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -65,6 +91,22 @@ public class UserEntity {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public Set<SkillEntity> getInterestList() {
+        return interestList;
+    }
+
+    public void setInterestList(Set<SkillEntity> interestList) {
+        this.interestList = interestList;
     }
 
     @Override

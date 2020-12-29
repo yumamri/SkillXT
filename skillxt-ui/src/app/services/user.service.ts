@@ -20,4 +20,8 @@ export class UserService {
   public searchUser(searchString: string): Observable<Array<UserDto>> {
     return this.userService.searchUsers({searchString: searchString});
   }
+
+  public getUserByEmail(email: string): Observable<UserDto> {
+    return this.userService.getUserByEmail$Json({email: email});
+  }
 }

@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 
 /**
- * Global ginb.skillxt.configuration
+ * Global configuration
  */
 @Injectable({
   providedIn: 'root',

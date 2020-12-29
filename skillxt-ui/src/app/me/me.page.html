@@ -13,22 +13,20 @@
             <a shape="round" routerLink="/settings">
                 <ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img>
             </a>
-
             <ion-icon name="person-circle-outline"></ion-icon>
 
             <a shape="round" routerLink="">
                 <ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img>
             </a>
-
             <ion-card-header>
                 <ion-card-title>{{name}} {{family}}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-icon name="pin"></ion-icon>
-                {{ville}}, {{pays}}
+                {{ville}}, {{country}}
             </ion-card-content>
         </ion-card>
-
+        <ion-button (click)="getUser()">{{user}}</ion-button>
         <!-- 2eme block (Compétence et Interet) -->
         <ion-card>
             <div>

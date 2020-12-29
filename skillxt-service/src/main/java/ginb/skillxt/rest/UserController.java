@@ -1,9 +1,6 @@
 package ginb.skillxt.rest;
 
-import ginb.skillxt.domain.exception.BadEmailFormatException;
-import ginb.skillxt.domain.exception.BadRequestException;
-import ginb.skillxt.domain.exception.BusinessException;
-import ginb.skillxt.domain.exception.UserExistsException;
+import ginb.skillxt.domain.exception.*;
 import ginb.skillxt.domain.service.UserService;
 import ginb.skillxt.rest.v1.handler.UsersApi;
 import ginb.skillxt.rest.v1.model.UserDTO;
@@ -27,7 +24,6 @@ public class UserController implements UsersApi {
 
     @Override
     public ResponseEntity<Void> addUser(@Valid UserDTO body) {
-
         try {
             userService.addUser(body);
             return ResponseEntity
@@ -40,12 +36,20 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<List<UserDTO>> searchUsers(@Valid String searchString) {
-
-        return ResponseEntity.ok(Collections.emptyList());
+    public ResponseEntity<UserDTO> getUserByEmail(String email){
+        try {
+            return ResponseEntity.ok(userService.getUserByEmail(email));
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
     }
 
-
+    @Override
+    public ResponseEntity<List<UserDTO>> searchUsers(@Valid String searchString) {
+        return ResponseEntity.ok(Collections.emptyList());
+    }
 
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {
         if (e instanceof UserExistsException) {
@@ -59,6 +63,10 @@ public class UserController implements UsersApi {
         } else if (e instanceof BadEmailFormatException) {
             return ResponseEntity
                     .status(HttpStatus.PRECONDITION_FAILED)
+                    .build();
+        } else if (e instanceof UserDoesNotExistException) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
                     .build();
         } else {
             return ResponseEntity

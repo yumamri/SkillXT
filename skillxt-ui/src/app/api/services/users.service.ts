@@ -148,4 +148,123 @@ export class UsersService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation getUserByEmail
+   */
+  static readonly GetUserByEmailPath = '/users/{email}';
+
+  /**
+   * Get user by email.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserByEmail$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserByEmail$Json$Response(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<StrictHttpResponse<UserDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.GetUserByEmailPath, 'get');
+    if (params) {
+      rb.path('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<UserDto>;
+      })
+    );
+  }
+
+  /**
+   * Get user by email.
+   *
+   *
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getUserByEmail$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserByEmail$Json(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<UserDto> {
+
+    return this.getUserByEmail$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
+    );
+  }
+
+  /**
+   * Get user by email.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserByEmail$Xml()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserByEmail$Xml$Response(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<StrictHttpResponse<UserDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.GetUserByEmailPath, 'get');
+    if (params) {
+      rb.path('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'blob',
+      accept: 'application/xml'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<UserDto>;
+      })
+    );
+  }
+
+  /**
+   * Get user by email.
+   *
+   *
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getUserByEmail$Xml$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserByEmail$Xml(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<UserDto> {
+
+    return this.getUserByEmail$Xml$Response(params).pipe(
+      map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
+    );
+  }
+
 }

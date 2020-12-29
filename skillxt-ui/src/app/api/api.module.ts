@@ -7,7 +7,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { UsersService } from './services/users.service';
 
 /**
- * Module that provides all services and ginb.skillxt.configuration.
+ * Module that provides all services and configuration.
  */
 @NgModule({
   imports: [],
