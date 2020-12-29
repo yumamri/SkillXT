@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserDto} from '../api/models/user-dto';
 import {UserService} from '../services/user.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-me',
@@ -9,25 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['me.page.scss']
 })
 export class MePage implements OnInit {
-
-  name= 'name';
-  family= "family";
   ville = 'ville';
-  country= "country";
   propos = 'A propos ...';
   user: UserDto;
 
   constructor(
       private userService: UserService,
-      private route: ActivatedRoute
   ) {}
 
-    ngOnInit() {
-      this.getUser();
- }
-    getUser(): void {
-      const email = this.route.snapshot.paramMap.get('a@a.aa');
-      this.userService.getUserByEmail(email)
-          .subscribe(user => console.log(user));
-    }
+  ngOnInit() {
+    this.getUser();
+  }
+  getUser() {
+    this.userService.getUserByEmail('a@a.aa')
+        .subscribe(user => this.user = user,
+            error=> console.log("error"),
+            () => console.log("complete"));
+  }
 }
