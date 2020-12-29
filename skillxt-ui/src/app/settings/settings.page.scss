@@ -46,3 +46,7 @@ a {
 ion-card:last-child ion-label{
   color: var(--ion-color-danger);
 }
+
+ion-card:last-of-type {
+  margin-bottom: 22%;
+}
