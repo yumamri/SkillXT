@@ -124,3 +124,6 @@ components:
         title:
           type: string
           example: Piano
+        type:
+          type: string
+          example: Musique

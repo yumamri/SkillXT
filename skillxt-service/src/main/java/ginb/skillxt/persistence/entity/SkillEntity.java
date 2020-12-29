@@ -2,13 +2,11 @@ package ginb.skillxt.persistence.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "skill")
-@Embeddable
 public class SkillEntity {
     @Id
     @Column(name = "id")
@@ -17,6 +15,9 @@ public class SkillEntity {
 
     @Column(name = "title")
     String title;
+
+    @Column(name = "type")
+    String type;
 
     @ManyToMany(mappedBy = "interestList")
     private Set<UserEntity> userInterest = new HashSet<>();
@@ -35,6 +36,14 @@ public class SkillEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Set<UserEntity> getUserInterest() {
