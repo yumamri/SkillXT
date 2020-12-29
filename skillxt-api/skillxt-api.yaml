@@ -73,13 +73,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserDTO'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/UserDTO'
         '400':
           description: Invalid email supplied
         '404':
           description: User not found
+  /skills:
+    get:
+      tags:
+        - skills
+      summary: Get all skills
+      operationId: getSkills
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SkillDTO'
 components:
   schemas:
     UserDTO:
@@ -106,3 +118,9 @@ components:
         country:
           type: string
           example: France
+    SkillDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Piano

@@ -22,6 +22,6 @@ export class UserService {
   }
 
   public getUserByEmail(email: string): Observable<UserDto> {
-    return this.userService.getUserByEmail$Json({email: email});
+    return this.userService.getUserByEmail({email: email});
   }
 }

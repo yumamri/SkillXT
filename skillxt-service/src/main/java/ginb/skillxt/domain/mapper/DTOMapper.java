@@ -1,6 +1,8 @@
 package ginb.skillxt.domain.mapper;
 
+import ginb.skillxt.persistence.entity.SkillEntity;
 import ginb.skillxt.persistence.entity.UserEntity;
+import ginb.skillxt.rest.v1.model.SkillDTO;
 import ginb.skillxt.rest.v1.model.UserDTO;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
@@ -11,5 +13,9 @@ public interface DTOMapper {
     UserDTO map(UserEntity value);
 
     UserEntity map(UserDTO value);
+
+    SkillDTO map(SkillEntity value);
+
+    SkillEntity map(SkillDTO value);
 
 }

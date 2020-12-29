@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { UsersService } from './services/users.service';
+import { SkillsService } from './services/skills.service';
 
 /**
  * Module that provides all services and configuration.
@@ -15,6 +16,7 @@ import { UsersService } from './services/users.service';
   declarations: [],
   providers: [
     UsersService,
+    SkillsService,
     ApiConfiguration
   ],
 })
