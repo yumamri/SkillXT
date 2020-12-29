@@ -11,7 +11,9 @@ import {SkillService} from "../../services/skill.service";
 export class CompetencesComponent implements OnInit {
   skill: SkillDto;
   skills: Observable<SkillDto[]>;
+  form: any;
   constructor(private skillService: SkillService) { }
+
 
   ngOnInit() {
     this.skills = this.skillService.getSkills();
