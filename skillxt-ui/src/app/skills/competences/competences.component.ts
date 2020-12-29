@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
+    form: any;
 
   constructor() { }
 
