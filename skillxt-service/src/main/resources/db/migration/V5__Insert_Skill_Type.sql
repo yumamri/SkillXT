@@ -18,7 +18,7 @@ VALUES
     ('Charpentrie', 2),
     ('Cuisine', 3),
     ('Mode', 3),
-    ('DIY', 3)
+    ('DIY', 3),
     ('Couture', 3),
     ('Communication', 3),
     ('Jardinage', 4),
