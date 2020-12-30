@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -11,12 +11,13 @@ import {InterestsComponent} from './interests/interests.component';
 import {CompetencesComponent} from './competences/competences.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    SkillsPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        SkillsPageRoutingModule,
+        ReactiveFormsModule
+    ],
   declarations: [SkillsPage, InterestsComponent, CompetencesComponent]
 })
 export class SkillsPageModule {}

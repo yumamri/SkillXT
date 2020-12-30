@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {SkillDto} from "../../api/models/skill-dto";
 import {SkillService} from "../../services/skill.service";
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-competences',
@@ -9,16 +10,22 @@ import {SkillService} from "../../services/skill.service";
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
-  search: string;
   skill: SkillDto;
   skills: Observable<SkillDto[]>;
-  form: any;
-  constructor(private skillService: SkillService) { }
+  search: string;
+
+  constructor(private skillService: SkillService) {
+    this.skills = this.skillService.getSkills();
+  }
 
 
   ngOnInit() {
-    this.skills = this.skillService.getSkills();
-    this.skillService.getSkills().subscribe(skill => console.log(skill))
+    //this.skills.subscribe(skill => console.log(skill));
   }
 
+  getSkillsByTitle(title: String) {
+    this.skills.pipe(map(skills => skills.filter(skill => skill.title === title)));
+    this.skills.subscribe(skill => console.log(skill));
+    return this.skills;
+  }
 }
