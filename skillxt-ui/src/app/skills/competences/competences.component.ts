@@ -12,13 +12,11 @@ export class CompetencesComponent implements OnInit {
   skill: SkillDto;
   search: string;
 
-  constructor(private skillService: SkillService) {this.skillService.getSkills().subscribe(skill => this.skills = skill);
-    console.log(this.skills);
+  constructor(private skillService: SkillService) {
+    this.skillService.getSkills().subscribe(skill => this.skills = skill);
   }
-
 
   ngOnInit() {
 
-    //this.skills.subscribe(skill => console.log(skill));
   }
 }
