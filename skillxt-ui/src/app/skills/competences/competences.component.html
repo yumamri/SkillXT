@@ -1,38 +1,17 @@
 <ion-card-content>
   <div id ="research">
     <div>
-      <ion-input placeholder="Ex: Piano"></ion-input>
+      <ion-input placeholder="Ex: Piano" [(ngModel)]="search"></ion-input>
     </div>
     <div>
       <a routerLink="">Rechercher</a>
     </div>
   </div>
   <ion-toolbar>
-    <ion-card>
       <ion-item *ngFor="let skill of skills | async">
         <ion-label>{{skill.title}}</ion-label>
         <ion-checkbox slot="start"></ion-checkbox>
       </ion-item>
-    </ion-card>
-    <ion-card>
-    <ion-list>
-      <ion-item>
-        <ion-label>Compétences</ion-label>
-        <ion-checkbox color="primary"></ion-checkbox>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Compétences</ion-label>
-        <ion-checkbox color="primary"></ion-checkbox>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Compétences</ion-label>
-        <ion-checkbox color="primary"></ion-checkbox>
-      </ion-item>
-
-    </ion-list>
-    </ion-card>
   </ion-toolbar>
 
 </ion-card-content>

@@ -9,6 +9,7 @@ import {SkillService} from "../../services/skill.service";
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
+  search: string;
   skill: SkillDto;
   skills: Observable<SkillDto[]>;
   form: any;

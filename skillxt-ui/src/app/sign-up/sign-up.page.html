@@ -34,7 +34,7 @@
                     <p>Pays</p>
                     <ion-select #select [value]="country" formControlName="country" placeholder="pays" [(ngModel)]="country"
                     [selectedText]="country" (ionChange)="(select.value)">
-                        <ion-select-option *ngFor="let country of countries | async">{{country.name}}</ion-select-option>
+                        <ion-select-option *ngFor="let country of countries">{{country}}</ion-select-option>
                     </ion-select>
                 </div>
 
@@ -59,7 +59,6 @@
                     <span class="error" *ngIf="errorControl.confirmPassword.errors?.required">Le mot de passe doit être renseigné.</span>
                     <span class="error" *ngIf="errorControl.confirmPassword.errors?.confirmedValidator">Les mots de passe doivent être identique</span>
                 </div>
-
             </form>
                 <section>
                     <ion-button shape="round" [disabled]="!ionicForm.valid" (click)="onSave()">Créer un compte</ion-button>

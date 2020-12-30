@@ -5,8 +5,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {ConfirmedValidator} from './confirmed.validator';
 import {AlertController} from '@ionic/angular';
 import {CountryService} from '../services/country.service';
-import {Observable} from 'rxjs';
-import {Country} from './country';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -22,7 +20,7 @@ export class SignUpPage implements OnInit {
   password: string;
   confirmPassword: string;
   country: string;
-  countries: Observable<Country[]>;
+  countries: string[];
 
   title = 'Créer un compte';
 
@@ -44,7 +42,7 @@ export class SignUpPage implements OnInit {
   }
 
   ngOnInit() {
-    this.countries = this.countryService.getAllCountries();
+    this.countries = this.countryService.getCountry();
     this.country = 'France';
   }
   get errorControl() {
@@ -78,7 +76,6 @@ export class SignUpPage implements OnInit {
     });
     await alert.present();
   }
-
   async onSave() {
       const user: UserDto = {
         name: this.name,
