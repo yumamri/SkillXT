@@ -14,7 +14,7 @@ export class SkillService {
       private skillService: SkillsService) {
 
   }
-  public getSkills(): Array<SkillDto> {
+  public getSkills(): Observable<Array<SkillDto>> {
     return this.skillService.getSkills();
   }
 }

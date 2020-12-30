@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { SkillsPageRoutingModule } from './skills-routing.module';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { SkillsPage } from './skills.page';
 import {InterestsComponent} from './interests/interests.component';
 import {CompetencesComponent} from './competences/competences.component';
@@ -16,7 +18,8 @@ import {CompetencesComponent} from './competences/competences.component';
         FormsModule,
         IonicModule,
         SkillsPageRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        Ng2SearchPipeModule
     ],
   declarations: [SkillsPage, InterestsComponent, CompetencesComponent]
 })
