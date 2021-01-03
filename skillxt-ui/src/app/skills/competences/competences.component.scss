@@ -24,6 +24,10 @@ ion-list{
   background: var(--ion-color-light);
 }
 
+ion-searchbar{
+  --border-radius: 20px;
+}
+
 a{
   text-decoration: none;
 }
