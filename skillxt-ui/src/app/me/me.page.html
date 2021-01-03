@@ -14,7 +14,7 @@
 
 <!--if the user is connected-->
         <!-- 1er block ("profil") -->
-        <ion-card *ngIf="!user">
+        <ion-card *ngIf="user">
             <ion-card-header>
                 <div>
                     <div class="column2 left2">
@@ -30,7 +30,7 @@
             </ion-card-header>
 
             <ion-card-content>
-<!--                <ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title>-->
+                <ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title>
                 <ion-card-title>Prénom, NOM</ion-card-title>
             </ion-card-content>
 

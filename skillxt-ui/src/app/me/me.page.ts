@@ -20,7 +20,7 @@ export class MePage implements OnInit {
     this.getUser();
   }
   getUser() {
-    this.userService.getUserByEmail('a@a.aa')
+    this.userService.getUserByEmail('kd@kd.kd')
         .subscribe(user => this.user = user,
             error=> console.log("error"),
             () => console.log("complete"));

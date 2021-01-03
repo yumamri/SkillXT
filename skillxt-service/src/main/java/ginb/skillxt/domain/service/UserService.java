@@ -2,6 +2,9 @@ package ginb.skillxt.domain.service;
 
 import ginb.skillxt.domain.exception.*;
 import ginb.skillxt.domain.mapper.DTOMapper;
+import ginb.skillxt.persistence.entity.SkillEntity;
+import ginb.skillxt.persistence.entity.UserEntity;
+import ginb.skillxt.persistence.repository.SkillRepository;
 import ginb.skillxt.persistence.repository.UserRepository;
 import ginb.skillxt.rest.v1.model.UserDTO;
 import org.springframework.stereotype.Service;
@@ -11,10 +14,12 @@ import org.springframework.util.StringUtils;
 public class UserService {
     private final UserRepository userRepository;
     private final DTOMapper dtoMapper;
+    private final SkillRepository skillRepository;
 
-    public UserService(UserRepository userRepository, DTOMapper dtoMapper) {
+    public UserService(UserRepository userRepository, DTOMapper dtoMapper, SkillRepository skillRepository) {
         this.userRepository = userRepository;
         this.dtoMapper = dtoMapper;
+        this.skillRepository = skillRepository;
     }
     public void addUser(UserDTO userDTO) throws BusinessException {
         checkParams(userDTO);
@@ -25,9 +30,20 @@ public class UserService {
         }
     }
 
+    public UserEntity addUserCompetence(String email, String title) throws BusinessException{
+        if (userRepository.existsByEmail(email)) {
+            UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+            SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
+            userEntity.getCompetenceList().add(skillEntity);
+            return userRepository.save(userEntity);
+        } else {
+            throw new UserDoesNotExistException();
+        }
+    }
+
     public UserDTO getUserByEmail(String email) throws BusinessException{
         if (userRepository.existsByEmail(email)) {
-           return dtoMapper.map(userRepository.findUserEntityByEmail(email));
+            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
         } else {
             throw new UserDoesNotExistException();
         }
