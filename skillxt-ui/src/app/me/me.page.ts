@@ -21,7 +21,7 @@ export class MePage implements OnInit {
   getUser() {
     this.userService.getUserByEmail('mail@gmail.com')
         .subscribe(user => this.user = user,
-            error=> console.log('error'),
+            error => console.log('error'),
             () => console.log('complete'));
   }
 }
