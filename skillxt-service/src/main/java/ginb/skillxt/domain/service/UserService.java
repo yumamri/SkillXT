@@ -28,6 +28,7 @@ public class UserService {
             userRepository.save(dtoMapper.map(userDTO));
         }
     }
+
     public UserDTO getUserByEmail(String email) throws BusinessException{
         if (userRepository.existsByEmail(email)) {
            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
