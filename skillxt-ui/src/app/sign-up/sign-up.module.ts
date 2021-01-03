@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-      SignUpPageRoutingModule
+    SignUpPageRoutingModule
   ],
   declarations: [SignUpPage]
 })
