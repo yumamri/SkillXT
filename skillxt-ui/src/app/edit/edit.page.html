@@ -1,9 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/me" text="retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modification</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="user">
+  <ion-card>
+    <div class="column left">
+      <p>Photo de profil</p>
+    </div>
+    <div class="column right">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </div>
+  </ion-card>
+  <ion-card>
+    <table>
+      <tr>
+        <td><p>Nom</p></td>
+        <td><ion-input placeholder="{{user.family}}" [(ngModel)]="family"></ion-input></td>
+      </tr>
+      <tr>
+        <td><p>Prénom</p></td>
+        <td><ion-input placeholder="{{user.name}}" [(ngModel)]="name"></ion-input></td>
+      </tr>
+    </table>
+  </ion-card>
 
+  <ion-card>
+    <table>
+      <tr>
+        <td><p>Pays</p></td>
+        <td><ion-select #select [value]="country" placeholder="{{user.country}}" [(ngModel)]="country"
+                        [selectedText]="country" (ionChange)="(select.value)">
+          <ion-select-option *ngFor="let country of countries">{{country}}</ion-select-option>
+        </ion-select></td>
+      </tr>
+    </table>
+  </ion-card>
+
+  <ion-card>
+    <p>Description</p>
+    <label>
+      <textarea placeholder=""></textarea>
+    </label>
+  </ion-card>
+
+  <ion-card>
+    <ion-button color="secondary" shape="round" size="small" (click)="onEdit()">Sauvegarder</ion-button>
+  </ion-card>
 </ion-content>

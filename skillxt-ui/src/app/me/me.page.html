@@ -4,12 +4,6 @@
     </ion-header>
 
     <ion-content>
-        <ion-card *ngIf="!user">
-            <ion-card-content>
-                <ion-card-title>Vous devez être connecté pour accéder à cette page</ion-card-title>
-                <ion-button color="tertiary" shape="round" size="small" routerLink="/sign-in">Se Connecter</ion-button>
-            </ion-card-content>
-        </ion-card>
 
         <ion-card *ngIf="user">
             <ion-card-content>
@@ -22,7 +16,7 @@
                         <ion-icon name="person-circle-outline"></ion-icon>
                     </div>
                     <div class="column2 right2">
-                        <a routerLink=""><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
+                        <a routerLink="/edit"><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
                     </div>
                     </tr>
                     <tr><ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title></tr>
@@ -31,11 +25,11 @@
 
             <ion-card-content>
                 <ion-icon name="pin" size="small"></ion-icon>
-                <ion-title>{{ville}}, {{user.country}}</ion-title>
+                <ion-card-title>{{user.country}}</ion-card-title>
             </ion-card-content>
         </ion-card>
 
-        <ion-card *ngIf="!user">
+        <ion-card *ngIf="user">
             <div>
                 <div class="row">
                     <div>
@@ -67,12 +61,5 @@
             </ion-card-content>
         </ion-card>
 
-
-
-        <ion-card style="margin-bottom: 20%">
-            <ion-label>Test a supprimer plus tard</ion-label>
-            <a class="plus" routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
-            <app-bubble-skill></app-bubble-skill>
-        </ion-card>
     </ion-content>
 </div>

@@ -37,6 +37,9 @@ ion-card {
     padding: 5px;
     background-color: var(--ion-color-light);
 }
+ion-card:last-child{
+    margin-bottom: 20%;
+}
 
 ion-img{
     width: 60%;
