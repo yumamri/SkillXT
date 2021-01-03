@@ -4,16 +4,6 @@
     </ion-header>
 
     <ion-content>
-<!--if the user isnt connected-->
-        <ion-card *ngIf="!user">
-            <ion-card-content>
-                <ion-card-title>Vous devez être connecté pour accéder à cette page</ion-card-title>
-                <ion-button color="tertiary" shape="round" size="small" routerLink="/sign-in">Se Connecter</ion-button>
-            </ion-card-content>
-        </ion-card>
-
-<!--if the user is connected-->
-        <!-- 1er block ("profil") -->
         <ion-card *ngIf="user">
             <ion-card-header>
                 <div>
@@ -24,7 +14,7 @@
                         <ion-icon name="person-circle-outline"></ion-icon>
                     </div>
                     <div class="column2 right2">
-                        <a shape="round" routerLink=""><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
+                        <a shape="round" routerLink="/edit"><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
                     </div>
                 </div>
             </ion-card-header>
@@ -36,21 +26,14 @@
 
             <ion-card-content>
                 <ion-icon name="pin"></ion-icon>
-<!--                <ion-title>{{ville}}, {{user.country}}</ion-title>-->
-                <ion-title>ville, pays</ion-title>
+                <ion-title>{{user.country}}</ion-title>
             </ion-card-content>
         </ion-card>
 
-        <ion-card style="margin-bottom: 20%">
-            <ion-label>Test a supprimer plus tard</ion-label>
-            <a class="plus" routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
-        </ion-card>
-
-        <!-- 2eme block (Compétence et Interet) -->
         <ion-card *ngIf="user">
             <div>
-                <div class="row"> <!-- div : all skill -->
-                    <div> <!-- div : Compétence -->
+                <div class="row">
+                    <div>
                         <div class="column left">
                             <ion-icon name="bulb"></ion-icon>
                         </div>
@@ -60,7 +43,7 @@
                             <ion-label>Compétence</ion-label>
                         </div>
                     </div>
-                    <div> <!-- div : Interet -->
+                    <div>
                         <div class="column left">
                             <ion-icon name="school"></ion-icon>
                         </div>
@@ -74,7 +57,6 @@
             <a routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
         </ion-card>
 
-        <!-- 3eme block ("A propos...") -->
         <ion-card class="about" *ngIf="user">
             <ion-card-content>
                 {{propos}}
@@ -82,7 +64,3 @@
         </ion-card>
     </ion-content>
 </div>
-
-
-<!-- Pour Moi -->
-<!-- 300 - 635 -->
