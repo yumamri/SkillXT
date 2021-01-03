@@ -16,6 +16,6 @@ public interface SkillRepository extends JpaRepository<SkillEntity, Long> {
     @Query("select s from SkillEntity s order by s.title asc")
     List<SkillEntity> findAllSkillEntity();
 
-    @Query("select s from SkillEntity s join s.userInterest t where t.id =: id")
-    List<SkillEntity> getInterestSkillByUserId(int id);
+    @Query("select s from SkillEntity s join s.userInterest t where t.email =: email")
+    List<SkillEntity> getInterestSkillByUserId(String email);
 }
