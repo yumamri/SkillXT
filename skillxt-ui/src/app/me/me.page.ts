@@ -8,6 +8,7 @@ import {UserService} from '../services/user.service';
   styleUrls: ['me.page.scss']
 })
 export class MePage implements OnInit {
+  ville = 'ville';
   propos = 'A propos ...';
   user: UserDto;
 
@@ -19,9 +20,9 @@ export class MePage implements OnInit {
     this.getUser();
   }
   getUser() {
-    this.userService.getUserByEmail('mail@gmail.com')
+    this.userService.getUserByEmail('kd@kd.kd')
         .subscribe(user => this.user = user,
-            error => console.log('error'),
-            () => console.log('complete'));
+            error=> console.log("error"),
+            () => console.log("complete"));
   }
 }

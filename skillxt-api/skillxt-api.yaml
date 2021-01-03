@@ -77,16 +77,22 @@ paths:
           description: Invalid email supplied
         '404':
           description: User not found
-  /users/{email}/skills/competences:
-    put:
+  /users/{email}/{skills}:
+    post:
       tags:
         - users
-      summary: updates users competences
-      operationId: updateUserCompetence
+      summary: adds users competences
+      operationId: addUserCompetence
       parameters:
         - name: email
           in: path
           description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+        - name: skills
+          in: path
+          description: The skill that needs to be fetched
           required: true
           schema:
             type: string
@@ -147,6 +153,3 @@ components:
         type:
           type: string
           example: Musique
-        isChecked:
-          type: boolean
-          example: false

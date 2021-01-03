@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `interest` (
     `id_skill` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `knowledge` (
+CREATE TABLE IF NOT EXISTS `competence` (
     `id_user` int(11) NOT NULL,
     `id_skill` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -18,9 +18,9 @@ ALTER TABLE `interest`
 ALTER TABLE `interest`
     ADD FOREIGN KEY (`id_skill`) REFERENCES skill(`id`);
 
-ALTER TABLE `knowledge`
+ALTER TABLE `competence`
     ADD PRIMARY KEY (`id_user`, `id_skill`);
-ALTER TABLE `knowledge`
+ALTER TABLE `competence`
     ADD FOREIGN KEY (`id_user`) REFERENCES user(`id`);
-ALTER TABLE `knowledge`
+ALTER TABLE `competence`
     ADD FOREIGN KEY (`id_skill`) REFERENCES skill(`id`);

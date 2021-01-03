@@ -32,7 +32,18 @@ public class UserController implements UsersApi {
         } catch (BusinessException e) {
             return handleErrorsResponseEntity(e);
         }
+    }
 
+    @Override
+    public ResponseEntity<Void> addUserCompetence(String email, String skill) {
+        try {
+            userService.addUserCompetence(email, skill);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
     }
 
     @Override

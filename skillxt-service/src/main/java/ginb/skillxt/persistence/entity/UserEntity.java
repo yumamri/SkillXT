@@ -39,11 +39,11 @@ public class UserEntity {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(name = "interest",
+    @JoinTable(name = "competence",
             joinColumns = @JoinColumn(name = "id_user"),
             inverseJoinColumns = @JoinColumn(name = "id_skill")
     )
-    private Set<SkillEntity> interestList = new HashSet<>();
+    private Set<SkillEntity> competenceList = new HashSet<>();
 
     public int getId() {
         return id;
@@ -101,12 +101,12 @@ public class UserEntity {
         this.about = about;
     }
 
-    public Set<SkillEntity> getInterestList() {
-        return interestList;
+    public Set<SkillEntity> getCompetenceList() {
+        return competenceList;
     }
 
-    public void setInterestList(Set<SkillEntity> interestList) {
-        this.interestList = interestList;
+    public void setCompetenceList(Set<SkillEntity> competenceList) {
+        this.competenceList = competenceList;
     }
 
     @Override

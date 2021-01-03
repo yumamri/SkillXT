@@ -11,11 +11,11 @@ import java.util.Optional;
 @Repository
 public interface SkillRepository extends JpaRepository<SkillEntity, Long> {
 
-    Optional<SkillEntity> findSkillEntityByTitle(String title);
+    SkillEntity findSkillEntityByTitle(String title);
 
     @Query("select s from SkillEntity s order by s.title asc")
     List<SkillEntity> findAllSkillEntity();
 
-    @Query("select s from SkillEntity s join s.userInterest t where t.email =: email")
-    List<SkillEntity> getInterestSkillByUserId(String email);
+    @Query("select s from SkillEntity s join s.userCompetence t where t.email =: email")
+    List<SkillEntity> getCompetenceSkillByUserId(String email);
 }

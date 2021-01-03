@@ -19,8 +19,8 @@ public class SkillEntity {
     @Column(name = "type")
     String type;
 
-    @ManyToMany(mappedBy = "interestList")
-    private Set<UserEntity> userInterest = new HashSet<>();
+    @ManyToMany(mappedBy = "competenceList")
+    private Set<UserEntity> userCompetence = new HashSet<>();
 
     public int getId() {
         return id;
@@ -46,12 +46,12 @@ public class SkillEntity {
         this.type = type;
     }
 
-    public Set<UserEntity> getUserInterest() {
-        return userInterest;
+    public Set<UserEntity> getUserCompetence() {
+        return userCompetence;
     }
 
-    public void setUserInterest(Set<UserEntity> userInterest) {
-        this.userInterest = userInterest;
+    public void setUserCompetence(Set<UserEntity> userCompetence) {
+        this.userCompetence = userCompetence;
     }
 
     @Override

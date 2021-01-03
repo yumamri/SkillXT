@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SkillDto} from "../../api/models/skill-dto";
 import {SkillService} from "../../services/skill.service";
-import {chain} from "@angular-devkit/schematics";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-competences',
@@ -14,7 +14,9 @@ export class CompetencesComponent implements OnInit {
   skill: SkillDto;
   search: string;
 
-  constructor(private skillService: SkillService) {
+  constructor(
+      private skillService: SkillService,
+      private userService: UserService) {
     this.skillService.getSkills().subscribe(skill => this.skills = skill);
   }
 
@@ -23,10 +25,14 @@ export class CompetencesComponent implements OnInit {
 
   onChange(skill) {
    if (skill.checked == true) {
-     this.check.push(skill);
+     this.check.push(skill.title);
    } else if (skill.checked == false) {
      this.check.pop();
    }
    console.log(this.check);
+  }
+
+  addUserCompetence() {
+    this.userService.addUserCompetence("kd@kd.kd", "Anglais");
   }
 }

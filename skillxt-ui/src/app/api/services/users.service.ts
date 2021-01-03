@@ -210,4 +210,77 @@ export class UsersService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation addUserCompetence
+   */
+  static readonly AddUserCompetencePath = '/users/{email}/{skills}';
+
+  /**
+   * adds users competences.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `addUserCompetence()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  addUserCompetence$Response(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+
+    /**
+     * The skill that needs to be fetched
+     */
+    skills: string;
+  }): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.AddUserCompetencePath, 'post');
+    if (params) {
+      rb.path('email', params.email, {});
+      rb.path('skills', params.skills, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * adds users competences.
+   *
+   *
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `addUserCompetence$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  addUserCompetence(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+
+    /**
+     * The skill that needs to be fetched
+     */
+    skills: string;
+  }): Observable<void> {
+
+    return this.addUserCompetence$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
 }
