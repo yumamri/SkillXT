@@ -77,46 +77,6 @@ paths:
           description: Invalid email supplied
         '404':
           description: User not found
-  /users/{email}/skills/competences:
-    put:
-      tags:
-        - users
-      summary: updates users competences
-      operationId: updateUserCompetence
-      parameters:
-        - name: email
-          in: path
-          description: The email that needs to be fetched.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid email supplied
-        '404':
-          description: User not found
-  /users/{email}/skills/interests:
-    put:
-      tags:
-        - users
-      summary: updates users interests
-      operationId: updateUserInterest
-      parameters:
-        - name: email
-          in: path
-          description: The email that needs to be fetched.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid email supplied
-        '404':
-          description: User not found
   /skills:
     get:
       tags:
@@ -167,6 +127,3 @@ components:
         type:
           type: string
           example: Musique
-        isChecked:
-            type: boolean
-            example: true

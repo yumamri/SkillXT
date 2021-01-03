@@ -2,14 +2,10 @@ package ginb.skillxt.domain.service;
 
 import ginb.skillxt.domain.exception.*;
 import ginb.skillxt.domain.mapper.DTOMapper;
-import ginb.skillxt.persistence.entity.SkillEntity;
-import ginb.skillxt.persistence.entity.UserEntity;
 import ginb.skillxt.persistence.repository.UserRepository;
 import ginb.skillxt.rest.v1.model.UserDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.util.List;
 
 @Service
 public class UserService {
