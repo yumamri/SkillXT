@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MePage } from './me.page';
 import { MePageRoutingModule } from './me-routing.module';
+import {BubbleSkillComponent} from './bubble-skill/bubble-skill.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { MePageRoutingModule } from './me-routing.module';
     RouterModule.forChild([{ path: '', component: MePage }]),
     MePageRoutingModule,
   ],
-  declarations: [MePage]
+  declarations: [MePage, BubbleSkillComponent]
 })
 export class MePageModule {}
