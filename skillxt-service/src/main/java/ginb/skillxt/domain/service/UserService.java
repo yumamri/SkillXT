@@ -34,7 +34,7 @@ public class UserService {
     public boolean isUserCompetence(String email, String title) throws BusinessException {
                 UserEntity userEntity = userRepository.findUserEntityByEmail(email);
                 SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
-                if (userEntity.getSkillCompetence().contains(skillEntity)) {
+                if (skillEntity.getUserCompetence().contains(userEntity)) {
                     return true;
                 } else {
                     return false;

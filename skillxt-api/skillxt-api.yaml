@@ -68,7 +68,7 @@ paths:
             type: string
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
           content:
             application/json:
               schema:
@@ -204,7 +204,7 @@ paths:
           content:
             application/json:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/Boolean'
         '400':
           description: Invalid email or skill supplied
         '404':
@@ -226,6 +226,8 @@ paths:
                   $ref: '#/components/schemas/SkillDTO'
 components:
   schemas:
+    Boolean:
+      type: boolean
     UserDTO:
       type: object
       required:

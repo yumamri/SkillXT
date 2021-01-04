@@ -5,6 +5,6 @@
     <ion-item *ngFor="let skill of skills | filter:search">
         <ion-label>{{skill.title}}</ion-label>
         <ion-label>{{skill.type}}</ion-label>
-        <ion-checkbox [checked]="isUserCompetence(skill)" slot="start" ></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="skill.checked" (ionChange)="onChange(skill)"></ion-checkbox>
     </ion-item>
 </ion-card-content>
