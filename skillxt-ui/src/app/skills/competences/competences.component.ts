@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {SkillDto} from "../../api/models/skill-dto";
-import {SkillService} from "../../services/skill.service";
-import {UserService} from "../../services/user.service";
+import {SkillDto} from '../../api/models/skill-dto';
+import {SkillService} from '../../services/skill.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-competences',
@@ -9,7 +9,7 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
-  skills= [];
+  skills = [];
   skill: SkillDto;
   search: string;
 
@@ -23,9 +23,9 @@ export class CompetencesComponent implements OnInit {
   }
 
   onChange(skill) {
-   if (skill.checked == true) {
+   if (skill.checked === true) {
      this.userService.addUserCompetence('s@s.ss', skill.title).subscribe();
-   } else if (skill.checked == false) {
+   } else if (skill.checked === false) {
      this.userService.deleteUserCompetence('s@s.ss', skill.title).subscribe();
    }
   }
