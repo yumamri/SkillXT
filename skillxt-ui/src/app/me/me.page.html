@@ -6,27 +6,28 @@
     <ion-content>
         <ion-card *ngIf="user">
             <ion-card-header>
-                <div>
-                    <div class="column2 left2">
-                        <a shape="round" routerLink="/settings"><ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img></a>
-                    </div>
-                    <div class="column2 middle">
-                        <ion-icon name="person-circle-outline"></ion-icon>
-                    </div>
-                    <div class="column2 right2">
-                        <a shape="round" routerLink="/edit"><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <div class="column2 left2">
+                            <a shape="round" routerLink="/settings"><ion-img src="./assets/icon/settings-purple-24dp/baseline_settings_purple_24dp.png"></ion-img></a>
+                        </div>
+                        <div class="column2 middle">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </div>
+                        <div class="column2 right2">
+                            <a shape="round" routerLink="/edit"><ion-img src="./assets/icon/edit-purple-18dp/baseline-edit-purple-18dp.png"></ion-img></a>
+                        </div>
+                    </tr>
+                </table>
             </ion-card-header>
 
             <ion-card-content>
                 <ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title>
-                <ion-card-title>Prénom, NOM</ion-card-title>
             </ion-card-content>
 
             <ion-card-content>
                 <ion-icon name="pin"></ion-icon>
-                <ion-title>{{user.country}}</ion-title>
+                <ion-card-title>{{user.country}}</ion-card-title>
             </ion-card-content>
         </ion-card>
 
@@ -50,11 +51,12 @@
                         <div class="column right buble">
                             <ion-label>Interet</ion-label>
                             <ion-label>Interet</ion-label>
+                            <app-bubble-skill></app-bubble-skill>
                         </div>
                     </div>
                 </div>
             </div>
-            <a routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
+            <a class="plus" routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
         </ion-card>
 
         <ion-card class="about" *ngIf="user">
