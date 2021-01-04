@@ -36,8 +36,14 @@ export class EditPage implements OnInit {
   }
 
   onEdit() {
-    console.log(this.name);
-    console.log(this.family);
-    console.log(this.country);
+    if (this.name !== '') {
+      console.log(this.name);
+    }
+    if (this.family !== '') {
+      console.log(this.family);
+    }
+    if (this.country !== '') {
+      console.log(this.country);
+    }
   }
 }

@@ -22,6 +22,9 @@ public class SkillEntity {
     @ManyToMany(mappedBy = "competenceList")
     private Set<UserEntity> userCompetence = new HashSet<>();
 
+    @ManyToMany(mappedBy = "interestList")
+    private Set<UserEntity> userInterest = new HashSet<>();
+
     public int getId() {
         return id;
     }
@@ -52,6 +55,14 @@ public class SkillEntity {
 
     public void setUserCompetence(Set<UserEntity> userCompetence) {
         this.userCompetence = userCompetence;
+    }
+
+    public Set<UserEntity> getUserInterest() {
+        return userInterest;
+    }
+
+    public void setUserInterest(Set<UserEntity> userInterest) {
+        this.userInterest = userInterest;
     }
 
     @Override

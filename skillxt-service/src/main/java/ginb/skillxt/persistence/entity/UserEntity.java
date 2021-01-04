@@ -45,6 +45,16 @@ public class UserEntity {
     )
     private Set<SkillEntity> SkillCompetence = new HashSet<>();
 
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "interest",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_skill")
+    )
+    private Set<SkillEntity> SkillInterest = new HashSet<>();
+
     public int getId() {
         return id;
     }
@@ -107,6 +117,14 @@ public class UserEntity {
 
     public void setSkillCompetence(Set<SkillEntity> skillCompetence) {
         SkillCompetence = skillCompetence;
+    }
+
+    public Set<SkillEntity> getSkillInterest() {
+        return SkillInterest;
+    }
+
+    public void setSkillInterest(Set<SkillEntity> skillInterest) {
+        SkillInterest = skillInterest;
     }
 
     @Override
