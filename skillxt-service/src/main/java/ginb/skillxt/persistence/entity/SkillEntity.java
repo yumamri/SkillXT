@@ -22,7 +22,7 @@ public class SkillEntity {
     @ManyToMany(mappedBy = "skillCompetence")
     private Set<UserEntity> userCompetence = new HashSet<>();
 
-    @ManyToMany(mappedBy = "interestList")
+    @ManyToMany(mappedBy = "skillInterest")
     private Set<UserEntity> userInterest = new HashSet<>();
 
     public int getId() {
