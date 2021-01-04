@@ -128,6 +128,57 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
+  /users/{email}/interest/{skill}:
+    post:
+      tags:
+        - users
+      summary: adds users interest
+      operationId: addUserInterest
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+        - name: skill
+          in: path
+          description: The skill that needs to be fetched
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
+    delete:
+      tags:
+        - users
+      summary: deletes users interest
+      operationId: deleteUserInterest
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+        - name: skill
+          in: path
+          description: The skill that needs to be fetched
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
   /users/{email}/skills/{skill}:
     get:
       tags:
