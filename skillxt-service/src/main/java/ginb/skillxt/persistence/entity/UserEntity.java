@@ -43,7 +43,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "id_user"),
             inverseJoinColumns = @JoinColumn(name = "id_skill")
     )
-    private Set<SkillEntity> SkillCompetence = new HashSet<>();
+    private Set<SkillEntity> skillCompetence = new HashSet<>();
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -112,11 +112,11 @@ public class UserEntity {
     }
 
     public Set<SkillEntity> getSkillCompetence() {
-        return SkillCompetence;
+        return skillCompetence;
     }
 
     public void setSkillCompetence(Set<SkillEntity> skillCompetence) {
-        SkillCompetence = skillCompetence;
+        this.skillCompetence = skillCompetence;
     }
 
     public Set<SkillEntity> getSkillInterest() {

@@ -19,7 +19,7 @@ public class SkillEntity {
     @Column(name = "type")
     String type;
 
-    @ManyToMany(mappedBy = "competenceList")
+    @ManyToMany(mappedBy = "skillCompetence")
     private Set<UserEntity> userCompetence = new HashSet<>();
 
     @ManyToMany(mappedBy = "interestList")
