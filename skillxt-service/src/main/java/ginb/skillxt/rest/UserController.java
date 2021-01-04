@@ -72,7 +72,31 @@ public class UserController implements UsersApi {
         }
     }
 
-        @Override
+    @Override
+    public ResponseEntity<Void> addUserInterest(String email, String skill) {
+        try {
+            userService.addUserInterest(email, skill);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .build();
+        }
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteUserInterest(String email, String skill) {
+        try {
+            userService.deleteUserInterest(email, skill);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .build();
+        }
+    }
+
+    @Override
     public ResponseEntity<UserDTO> getUserByEmail(String email){
         try {
             return ResponseEntity.ok(userService.getUserByEmail(email));
