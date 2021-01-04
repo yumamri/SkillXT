@@ -29,7 +29,7 @@ export class EditPage implements OnInit {
     // this.country = 'France';
   }
   getUser() {
-    this.userService.getUserByEmail('brice.orl@gmail.com')
+    this.userService.getUserByEmail('prenom.nom@gmail.com')
         .subscribe(user => this.user = user,
             error => console.log('error'),
             () => console.log('complete'));
