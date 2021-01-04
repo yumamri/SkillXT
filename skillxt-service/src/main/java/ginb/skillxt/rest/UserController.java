@@ -41,12 +41,24 @@ public class UserController implements UsersApi {
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (BusinessException e) {
             return ResponseEntity
-                    .badRequest()
+                    .status(HttpStatus.NOT_FOUND)
                     .build();
         }
     }
 
     @Override
+    public ResponseEntity<Void> deleteUserCompetence(String email, String skill) {
+        try {
+            userService.deleteUserCompetence(email, skill);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .build();
+        }
+    }
+
+        @Override
     public ResponseEntity<UserDTO> getUserByEmail(String email){
         try {
             return ResponseEntity.ok(userService.getUserByEmail(email));

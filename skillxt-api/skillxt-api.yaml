@@ -100,9 +100,34 @@ paths:
         '200':
           description: Successful operation
         '400':
-          description: Invalid email supplied
+          description: Invalid email or skill supplied
         '404':
-          description: User not found
+          description: User or skill not found
+    delete:
+      tags:
+        - users
+      summary: deletes users competences
+      operationId: deleteUserCompetence
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+        - name: skill
+          in: path
+          description: The skill that needs to be fetched
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
   /skills:
     get:
       tags:

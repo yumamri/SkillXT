@@ -32,10 +32,30 @@ public class UserService {
 
     public UserEntity addUserCompetence(String email, String title) throws BusinessException{
         if (userRepository.existsByEmail(email)) {
+            if (skillRepository.existsByTitle(title)) {
+                UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+                SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
+                userEntity.getSkillCompetence().add(skillEntity);
+                return userRepository.save(userEntity);
+            } else {
+                throw new SkillDoesNotExistException();
+            }
+        } else {
+            throw new UserDoesNotExistException();
+        }
+    }
+
+    public UserEntity deleteUserCompetence(String email, String title) throws BusinessException{
+        if (userRepository.existsByEmail(email)) {
             UserEntity userEntity = userRepository.findUserEntityByEmail(email);
             SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
-            userEntity.getCompetenceList().add(skillEntity);
-            return userRepository.save(userEntity);
+            if (skillEntity.getUserCompetence().contains(userEntity)) {
+                userEntity.getSkillCompetence().remove(skillEntity);
+                return userRepository.save(userEntity);
+            }
+            else {
+                throw new SkillDoesNotExistException();
+            }
         } else {
             throw new UserDoesNotExistException();
         }

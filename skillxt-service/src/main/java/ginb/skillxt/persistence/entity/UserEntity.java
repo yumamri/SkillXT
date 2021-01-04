@@ -43,7 +43,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "id_user"),
             inverseJoinColumns = @JoinColumn(name = "id_skill")
     )
-    private Set<SkillEntity> competenceList = new HashSet<>();
+    private Set<SkillEntity> SkillCompetence = new HashSet<>();
 
     public int getId() {
         return id;
@@ -101,12 +101,12 @@ public class UserEntity {
         this.about = about;
     }
 
-    public Set<SkillEntity> getCompetenceList() {
-        return competenceList;
+    public Set<SkillEntity> getSkillCompetence() {
+        return SkillCompetence;
     }
 
-    public void setCompetenceList(Set<SkillEntity> competenceList) {
-        this.competenceList = competenceList;
+    public void setSkillCompetence(Set<SkillEntity> skillCompetence) {
+        SkillCompetence = skillCompetence;
     }
 
     @Override

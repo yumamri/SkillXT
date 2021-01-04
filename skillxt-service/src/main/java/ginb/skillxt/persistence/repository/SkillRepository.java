@@ -13,6 +13,8 @@ public interface SkillRepository extends JpaRepository<SkillEntity, Long> {
 
     SkillEntity findSkillEntityByTitle(String title);
 
+    Boolean existsByTitle(String title);
+
     @Query("select s from SkillEntity s order by s.title asc")
     List<SkillEntity> findAllSkillEntity();
 

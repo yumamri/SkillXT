@@ -10,7 +10,6 @@ import {UserService} from "../../services/user.service";
 })
 export class CompetencesComponent implements OnInit {
   skills= [];
-  check= [];
   skill: SkillDto;
   search: string;
 
@@ -25,14 +24,10 @@ export class CompetencesComponent implements OnInit {
 
   onChange(skill) {
    if (skill.checked == true) {
-     this.check.push(skill.title);
+     this.userService.addUserCompetence('s@s.ss', skill.title).subscribe();
    } else if (skill.checked == false) {
-     this.check.pop();
+     this.userService.deleteUserCompetence('s@s.ss', skill.title).subscribe();
    }
-   console.log(this.check);
   }
 
-  function(){
-    this.userService.addUserCompetence('s@s.ss', 'Cuisine');
-  }
 }
