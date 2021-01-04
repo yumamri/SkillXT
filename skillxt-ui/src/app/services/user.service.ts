@@ -25,7 +25,7 @@ export class UserService {
     return this.userService.getUserByEmail({email: email});
   }
 
-  public addUserCompetence(email: string, skills: string): Observable<void> {
-    return this.userService.addUserCompetence({email: email, skills: skills})
+  public addUserCompetence(email: string, skills: string): Observable<void>{
+    return this.userService.addUserCompetence({email: email, skills: skills});
   }
 }
