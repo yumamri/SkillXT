@@ -213,7 +213,7 @@ export class UsersService extends BaseService {
   /**
    * Path part for operation addUserCompetence
    */
-  static readonly AddUserCompetencePath = '/users/{email}/{skills}';
+  static readonly AddUserCompetencePath = '/users/{email}/skills/{skill}';
 
   /**
    * adds users competences.
@@ -235,13 +235,13 @@ export class UsersService extends BaseService {
     /**
      * The skill that needs to be fetched
      */
-    skills: string;
+    skill: string;
   }): Observable<StrictHttpResponse<void>> {
 
     const rb = new RequestBuilder(this.rootUrl, UsersService.AddUserCompetencePath, 'post');
     if (params) {
       rb.path('email', params.email, {});
-      rb.path('skills', params.skills, {});
+      rb.path('skill', params.skill, {});
     }
 
     return this.http.request(rb.build({
@@ -275,7 +275,7 @@ export class UsersService extends BaseService {
     /**
      * The skill that needs to be fetched
      */
-    skills: string;
+    skill: string;
   }): Observable<void> {
 
     return this.addUserCompetence$Response(params).pipe(

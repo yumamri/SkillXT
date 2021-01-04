@@ -26,10 +26,13 @@ export class CompetencesComponent implements OnInit {
   onChange(skill) {
    if (skill.checked == true) {
      this.check.push(skill.title);
-     this.userService.addUserCompetence('s@s.ss', 'Trading');
    } else if (skill.checked == false) {
      this.check.pop();
    }
    console.log(this.check);
+  }
+
+  function(){
+    this.userService.addUserCompetence('s@s.ss', 'Cuisine');
   }
 }
