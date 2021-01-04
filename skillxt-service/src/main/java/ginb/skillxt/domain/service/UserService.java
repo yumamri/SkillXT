@@ -21,6 +21,7 @@ public class UserService {
         this.dtoMapper = dtoMapper;
         this.skillRepository = skillRepository;
     }
+
     public void addUser(UserDTO userDTO) throws BusinessException {
         checkParams(userDTO);
         if (userRepository.existsByEmail(userDTO.getEmail())) {
@@ -30,7 +31,17 @@ public class UserService {
         }
     }
 
-    public UserEntity addUserCompetence(String email, String title) throws BusinessException{
+    public boolean isUserCompetence(String email, String title) throws BusinessException {
+                UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+                SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
+                if (userEntity.getSkillCompetence().contains(skillEntity)) {
+                    return true;
+                } else {
+                    return false;
+                }
+    }
+
+    public UserEntity addUserCompetence(String email, String title) throws BusinessException {
         if (userRepository.existsByEmail(email)) {
             if (skillRepository.existsByTitle(title)) {
                 UserEntity userEntity = userRepository.findUserEntityByEmail(email);
@@ -45,7 +56,7 @@ public class UserService {
         }
     }
 
-    public UserEntity deleteUserCompetence(String email, String title) throws BusinessException{
+    public UserEntity deleteUserCompetence(String email, String title) throws BusinessException {
         if (userRepository.existsByEmail(email)) {
             UserEntity userEntity = userRepository.findUserEntityByEmail(email);
             SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);

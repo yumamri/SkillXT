@@ -179,6 +179,36 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
+  /users/{email}/skills/{skill}:
+    get:
+      tags:
+        - users
+      summary: does competence belong to user
+      operationId: isUserCompetence
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+        - name: skill
+          in: path
+          description: The skill that needs to be fetched
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
   /skills:
     get:
       tags:

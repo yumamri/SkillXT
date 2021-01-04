@@ -53,7 +53,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "id_user"),
             inverseJoinColumns = @JoinColumn(name = "id_skill")
     )
-    private Set<SkillEntity> SkillInterest = new HashSet<>();
+    private Set<SkillEntity> skillInterest = new HashSet<>();
 
     public int getId() {
         return id;
@@ -120,11 +120,11 @@ public class UserEntity {
     }
 
     public Set<SkillEntity> getSkillInterest() {
-        return SkillInterest;
+        return skillInterest;
     }
 
     public void setSkillInterest(Set<SkillEntity> skillInterest) {
-        SkillInterest = skillInterest;
+        this.skillInterest = skillInterest;
     }
 
     @Override
