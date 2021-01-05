@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SkillDto} from "../../api/models/skill-dto";
 import {SkillService} from "../../services/skill.service";
 import {UserService} from "../../services/user.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-competences',
@@ -20,18 +21,26 @@ export class CompetencesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.isUserCompetence('prenom.nom@gmail.com', 'Trading').subscribe(cons => console.log(cons));
   }
 
   onChange(skill) {
-   if (skill.checked == true) {
-     this.userService.addUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
-   } else if (skill.checked == false) {
-     this.userService.deleteUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
-   }
+    if (skill.checked == true) {
+      this.userService.addUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+    } else if (skill.checked == false) {
+      this.userService.deleteUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+    }
   }
 
   isUserCompetence(skill) {
-    this.userService.isUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+    this.userService.isUserCompetence('prenom.nom@gmail.com', skill.title).subscribe(
+        () => {
+          return true;
+        },
+        error => {
+          if (error instanceof HttpErrorResponse && error.status === 404) {
+            return false;
+          }
+        }
+    );
   }
 }

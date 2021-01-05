@@ -25,7 +25,7 @@ export class UserService {
     return this.userService.getUserByEmail({email: email});
   }
 
-  public isUserCompetence(email: string, skill: string): Observable<boolean> {
+  public isUserCompetence(email: string, skill: string): Observable<void> {
     return this.userService.isUserCompetence({email: email, skill: skill});
   }
 
