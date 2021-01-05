@@ -98,7 +98,7 @@ public class UserService {
             UserEntity userEntity = userRepository.findUserEntityByEmail(email);
             SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
             if (skillEntity.getUserInterest().contains(userEntity)) {
-                userEntity.getSkillCompetence().remove(skillEntity);
+                userEntity.getSkillInterest().remove(skillEntity);
                 return userRepository.save(userEntity);
             }
             else {

@@ -24,9 +24,9 @@ export class InterestsComponent implements OnInit {
 
   onChange(skill) {
     if (skill.checked === true) {
-      this.userService.addUserCompetence('s@s.ss', skill.title).subscribe();
+      this.userService.addUserInterest('prenom.nom@gmail.com', skill.title).subscribe();
     } else if (skill.checked === false) {
-      this.userService.deleteUserCompetence('s@s.ss', skill.title).subscribe();
+      this.userService.deleteUserInterest('prenom.nom@gmail.com', skill.title).subscribe();
     }
   }
 }

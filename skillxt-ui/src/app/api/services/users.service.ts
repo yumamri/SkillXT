@@ -359,7 +359,7 @@ export class UsersService extends BaseService {
   /**
    * Path part for operation addUserInterest
    */
-  static readonly AddUserInterestPath = '/users/{email}/interest/{skill}';
+  static readonly AddUserInterestPath = '/users/{email}/interests/{skill}';
 
   /**
    * adds users interest.
@@ -432,7 +432,7 @@ export class UsersService extends BaseService {
   /**
    * Path part for operation deleteUserInterest
    */
-  static readonly DeleteUserInterestPath = '/users/{email}/interest/{skill}';
+  static readonly DeleteUserInterestPath = '/users/{email}/interests/{skill}';
 
   /**
    * deletes users interest.
