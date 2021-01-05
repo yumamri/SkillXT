@@ -128,7 +128,7 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
-  /users/{email}/interest/{skill}:
+  /users/{email}/interests/{skill}:
     post:
       tags:
         - users
