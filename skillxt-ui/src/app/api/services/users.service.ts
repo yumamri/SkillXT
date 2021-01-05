@@ -213,7 +213,7 @@ export class UsersService extends BaseService {
   /**
    * Path part for operation addUserCompetence
    */
-  static readonly AddUserCompetencePath = '/users/{email}/competence/{skill}';
+  static readonly AddUserCompetencePath = '/users/{email}/competences/{skill}';
 
   /**
    * adds users competences.
@@ -286,7 +286,7 @@ export class UsersService extends BaseService {
   /**
    * Path part for operation deleteUserCompetence
    */
-  static readonly DeleteUserCompetencePath = '/users/{email}/competence/{skill}';
+  static readonly DeleteUserCompetencePath = '/users/{email}/competences/{skill}';
 
   /**
    * deletes users competences.
@@ -362,7 +362,7 @@ export class UsersService extends BaseService {
   static readonly AddUserInterestPath = '/users/{email}/interest/{skill}';
 
   /**
-   * adds users interests.
+   * adds users interest.
    *
    *
    *
@@ -402,7 +402,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * adds users interests.
+   * adds users interest.
    *
    *
    *
@@ -435,7 +435,7 @@ export class UsersService extends BaseService {
   static readonly DeleteUserInterestPath = '/users/{email}/interest/{skill}';
 
   /**
-   * deletes users interests.
+   * deletes users interest.
    *
    *
    *
@@ -475,7 +475,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * deletes users interests.
+   * deletes users interest.
    *
    *
    *

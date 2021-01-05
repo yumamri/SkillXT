@@ -20,6 +20,7 @@ export class CompetencesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.isUserCompetence('prenom.nom@gmail.com', 'Trading').subscribe(cons => console.log(cons));
   }
 
   onChange(skill) {
