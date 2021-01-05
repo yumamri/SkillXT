@@ -528,7 +528,7 @@ export class UsersService extends BaseService {
      * The skill that needs to be fetched
      */
     skill: string;
-  }): Observable<StrictHttpResponse<boolean>> {
+  }): Observable<StrictHttpResponse<void>> {
 
     const rb = new RequestBuilder(this.rootUrl, UsersService.IsUserCompetencePath, 'get');
     if (params) {
@@ -537,12 +537,12 @@ export class UsersService extends BaseService {
     }
 
     return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
+      responseType: 'text',
+      accept: '*/*'
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: String((r as HttpResponse<any>).body) === 'true' }) as StrictHttpResponse<boolean>;
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
       })
     );
   }
@@ -568,10 +568,10 @@ export class UsersService extends BaseService {
      * The skill that needs to be fetched
      */
     skill: string;
-  }): Observable<boolean> {
+  }): Observable<void> {
 
     return this.isUserCompetence$Response(params).pipe(
-      map((r: StrictHttpResponse<boolean>) => r.body as boolean)
+      map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 

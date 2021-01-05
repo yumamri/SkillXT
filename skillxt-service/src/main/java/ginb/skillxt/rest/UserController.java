@@ -35,22 +35,19 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<Boolean> isUserCompetence(String email, String skill) {
+    public ResponseEntity<Void> isUserCompetence(String email, String skill) {
         try {
-            userService.isUserCompetence(email, skill);
-            return ResponseEntity.ok().build();
-//            if (userService.isUserCompetence(email, skill)) {
-//                return ResponseEntity
-//                        .status(HttpStatus.OK)
-//                        .build();
-//            } else {
-//                return ResponseEntity
-//                        .status(HttpStatus.NOT_FOUND)
-//                        .build();
+            if (userService.isUserCompetence(email, skill)) {
+                return ResponseEntity
+                        .status(HttpStatus.OK)
+                        .build();
+            } else {
+                return ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .build();
+            }
         } catch (BusinessException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            return handleErrorsResponseEntity(e);
         }
     }
 
@@ -58,11 +55,11 @@ public class UserController implements UsersApi {
     public ResponseEntity<Void> addUserCompetence(String email, String skill) {
         try {
             userService.addUserCompetence(email, skill);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        } catch (BusinessException e) {
             return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
+                    .status(HttpStatus.OK)
                     .build();
+        } catch (BusinessException e) {
+            return handleErrorsResponseEntity(e);
         }
     }
 
@@ -72,9 +69,7 @@ public class UserController implements UsersApi {
             userService.deleteUserCompetence(email, skill);
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (BusinessException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            return handleErrorsResponseEntity(e);
         }
     }
 
@@ -84,9 +79,7 @@ public class UserController implements UsersApi {
             userService.addUserInterest(email, skill);
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (BusinessException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            return handleErrorsResponseEntity(e);
         }
     }
 
@@ -96,9 +89,7 @@ public class UserController implements UsersApi {
             userService.deleteUserInterest(email, skill);
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (BusinessException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            return handleErrorsResponseEntity(e);
         }
     }
 
@@ -131,7 +122,7 @@ public class UserController implements UsersApi {
             return ResponseEntity
                     .status(HttpStatus.PRECONDITION_FAILED)
                     .build();
-        } else if (e instanceof UserDoesNotExistException) {
+        } else if (e instanceof UserDoesNotExistException || e instanceof SkillDoesNotExistException) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .build();

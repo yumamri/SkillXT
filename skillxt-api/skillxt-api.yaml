@@ -201,10 +201,6 @@ paths:
       responses:
         '200':
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: boolean
         '400':
           description: Invalid email or skill supplied
         '404':
