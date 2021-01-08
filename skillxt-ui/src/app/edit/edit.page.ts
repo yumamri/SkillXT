@@ -12,10 +12,9 @@ export class EditPage implements OnInit {
   about = 'A propos ...';
   user: UserDto;
 
-  family: string;
-  name: string;
-
-  country: string;
+  family: string | undefined;
+  name: string | undefined;
+  country: string | undefined;
   countries: string[];
 
   constructor(
@@ -26,7 +25,7 @@ export class EditPage implements OnInit {
   ngOnInit() {
     this.getUser();
     this.countries = this.countryService.getCountry();
-    // this.country = 'France';
+
   }
   getUser() {
     this.userService.getUserByEmail('prenom.nom@gmail.com')
@@ -36,14 +35,26 @@ export class EditPage implements OnInit {
   }
 
   onEdit() {
-    if (this.name !== '') {
-      console.log(this.name);
+    if (this.family !== undefined) {
+      this.user.family = this.family;
+    } else {
+      this.family = this.user.family;
     }
-    if (this.family !== '') {
-      console.log(this.family);
+    if (this.name !== undefined) {
+      this.user.name = this.name;
+    } else {
+      this.name = this.user.name;
     }
-    if (this.country !== '') {
-      console.log(this.country);
+    if (this.country !== undefined) {
+      this.user.country = this.country;
+    } else {
+      this.country = this.user.country;
     }
+
+    console.log(this.family);
+    console.log(this.name);
+    console.log(this.country);
+
+
   }
 }
