@@ -81,7 +81,7 @@ paths:
     post:
       tags:
         - users
-      summary: adds users competences
+      summary: Adds users competences
       operationId: addUserCompetence
       parameters:
         - name: email
@@ -106,7 +106,7 @@ paths:
     delete:
       tags:
         - users
-      summary: deletes users competences
+      summary: Deletes users competences
       operationId: deleteUserCompetence
       parameters:
         - name: email
@@ -132,7 +132,7 @@ paths:
     post:
       tags:
         - users
-      summary: adds users interest
+      summary: Adds users interest
       operationId: addUserInterest
       parameters:
         - name: email
@@ -157,7 +157,7 @@ paths:
     delete:
       tags:
         - users
-      summary: deletes users interest
+      summary: Deletes users interest
       operationId: deleteUserInterest
       parameters:
         - name: email
@@ -179,36 +179,6 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
-  /users/{email}/skills/{skill}:
-    get:
-      tags:
-        - users
-      summary: does competence belong to user
-      operationId: isUserCompetence
-      parameters:
-        - name: email
-          in: path
-          description: The email that needs to be fetched.
-          required: true
-          schema:
-            type: string
-        - name: skill
-          in: path
-          description: The skill that needs to be fetched
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '400':
-          description: Invalid email or skill supplied
-        '404':
-          description: User or skill not found
   /skills:
     get:
       tags:
@@ -224,9 +194,34 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SkillDTO'
+  /skills/{email}/competences:
+    get:
+      tags:
+        - skills
+      summary: Get all user competences
+      operationId: getUserCompetence
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SkillDTO'
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
 components:
   schemas:
-
     UserDTO:
       type: object
       required:
@@ -253,6 +248,9 @@ components:
           example: France
     SkillDTO:
       type: object
+      required:
+        - title
+        - type
       properties:
         title:
           type: string

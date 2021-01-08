@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {SkillDto} from "../../api/models/skill-dto";
 import {SkillService} from "../../services/skill.service";
 import {UserService} from "../../services/user.service";
+import {forEach} from "@angular-devkit/schematics";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-competences',
@@ -12,7 +14,7 @@ export class CompetencesComponent implements OnInit {
   skills= [];
   skill: SkillDto;
   search: string;
-  test: boolean;
+  competence= [];
 
   constructor(
       private skillService: SkillService,
@@ -21,6 +23,7 @@ export class CompetencesComponent implements OnInit {
 
   ngOnInit() {
     this.skillService.getSkills().subscribe(skill => this.skills = skill);
+    this.skillService.getUserCompetence('prenom.nom@gmail.com').subscribe(comm => console.log(comm));
   }
 
   onChange(skill) {
@@ -28,15 +31,6 @@ export class CompetencesComponent implements OnInit {
       this.userService.addUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
     } else if (skill.checked == false) {
       this.userService.deleteUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
-    }
-  }
-
-  isCompetence(skill) {
-    this.userService.isUserCompetence('prenom.nom@gmail.com', skill.title).subscribe(next => this.test = next);
-    if (this.test == true) {
-      skill.checked = true;
-    } else {
-      skill.checked = false;
     }
   }
 }

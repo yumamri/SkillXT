@@ -216,7 +216,7 @@ export class UsersService extends BaseService {
   static readonly AddUserCompetencePath = '/users/{email}/competences/{skill}';
 
   /**
-   * adds users competences.
+   * Adds users competences.
    *
    *
    *
@@ -256,7 +256,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * adds users competences.
+   * Adds users competences.
    *
    *
    *
@@ -289,7 +289,7 @@ export class UsersService extends BaseService {
   static readonly DeleteUserCompetencePath = '/users/{email}/competences/{skill}';
 
   /**
-   * deletes users competences.
+   * Deletes users competences.
    *
    *
    *
@@ -329,7 +329,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * deletes users competences.
+   * Deletes users competences.
    *
    *
    *
@@ -362,7 +362,7 @@ export class UsersService extends BaseService {
   static readonly AddUserInterestPath = '/users/{email}/interests/{skill}';
 
   /**
-   * adds users interest.
+   * Adds users interest.
    *
    *
    *
@@ -402,7 +402,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * adds users interest.
+   * Adds users interest.
    *
    *
    *
@@ -435,7 +435,7 @@ export class UsersService extends BaseService {
   static readonly DeleteUserInterestPath = '/users/{email}/interests/{skill}';
 
   /**
-   * deletes users interest.
+   * Deletes users interest.
    *
    *
    *
@@ -475,7 +475,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * deletes users interest.
+   * Deletes users interest.
    *
    *
    *
@@ -499,79 +499,6 @@ export class UsersService extends BaseService {
 
     return this.deleteUserInterest$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
-    );
-  }
-
-  /**
-   * Path part for operation isUserCompetence
-   */
-  static readonly IsUserCompetencePath = '/users/{email}/skills/{skill}';
-
-  /**
-   * does competence belong to user.
-   *
-   *
-   *
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `isUserCompetence()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  isUserCompetence$Response(params: {
-
-    /**
-     * The email that needs to be fetched.
-     */
-    email: string;
-
-    /**
-     * The skill that needs to be fetched
-     */
-    skill: string;
-  }): Observable<StrictHttpResponse<boolean>> {
-
-    const rb = new RequestBuilder(this.rootUrl, UsersService.IsUserCompetencePath, 'get');
-    if (params) {
-      rb.path('email', params.email, {});
-      rb.path('skill', params.skill, {});
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: String((r as HttpResponse<any>).body) === 'true' }) as StrictHttpResponse<boolean>;
-      })
-    );
-  }
-
-  /**
-   * does competence belong to user.
-   *
-   *
-   *
-   * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `isUserCompetence$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  isUserCompetence(params: {
-
-    /**
-     * The email that needs to be fetched.
-     */
-    email: string;
-
-    /**
-     * The skill that needs to be fetched
-     */
-    skill: string;
-  }): Observable<boolean> {
-
-    return this.isUserCompetence$Response(params).pipe(
-      map((r: StrictHttpResponse<boolean>) => r.body as boolean)
     );
   }
 
