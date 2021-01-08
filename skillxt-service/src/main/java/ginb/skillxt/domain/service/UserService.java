@@ -60,7 +60,7 @@ public class UserService {
             userEntity.getSkillCompetence().remove(skillEntity);
             return userRepository.save(userEntity);
         } else {
-            throw new SkillDoesNotExistException();
+            throw new UserDoesNotExistException();
         }
     }
 
@@ -76,13 +76,17 @@ public class UserService {
         }
     }
 
-    public UserEntity deleteUserInterest(String email, String title) throws BusinessException {
-        userNotExist(email);
-        UserEntity userEntity = userRepository.findUserEntityByEmail(email);
-        SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
-        if (skillEntity.getUserInterest().contains(userEntity)) {
-            userEntity.getSkillCompetence().remove(skillEntity);
-            return userRepository.save(userEntity);
+    public UserEntity deleteUserInterest(String email, String title) throws BusinessException{
+        if (userRepository.existsByEmail(email)) {
+            UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+            SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
+            if (skillEntity.getUserInterest().contains(userEntity)) {
+                userEntity.getSkillInterest().remove(skillEntity);
+                return userRepository.save(userEntity);
+            }
+            else {
+                throw new SkillDoesNotExistException();
+            }
         } else {
             throw new SkillDoesNotExistException();
         }
