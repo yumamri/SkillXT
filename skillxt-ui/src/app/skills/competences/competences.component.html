@@ -1,10 +1,13 @@
 <ion-card-content>
     <div id ="research">
-        <ion-searchbar placeholder="Ex: Piano" [(ngModel)]="search" type="text" maxlength="30"></ion-searchbar>
+        <ion-searchbar placeholder="Ex: Piano"  [(ngModel)]="search" type="text" maxlength="20"></ion-searchbar>
     </div>
-    <ion-item *ngFor="let skill of skills | filter:search" >
-        <ion-label>{{skill.title}}</ion-label>
-        <ion-label>{{skill.type}}</ion-label>
+    <ion-item *ngFor="let skill of skills | filter:search">
+        <div style="float: left; width: 100%">
+            <div style="width: 74%"><ion-label style="">{{skill.title}}</ion-label></div>
+            <div style="width: 26%"><ion-label style="font-size: 80%; color: #4d4d4d; text-align: center">{{skill.type}}</ion-label></div>
+        </div>
         <ion-checkbox slot="start" [(ngModel)]="skill.checked" (ionChange)="onChange(skill)" (load)="isCompetence(skill)"></ion-checkbox>
     </ion-item>
+
 </ion-card-content>
