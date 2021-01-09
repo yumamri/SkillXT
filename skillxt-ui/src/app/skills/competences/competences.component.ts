@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {SkillDto} from "../../api/models/skill-dto";
 import {SkillService} from "../../services/skill.service";
 import {UserService} from "../../services/user.service";
-import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-competences',
@@ -13,14 +12,15 @@ export class CompetencesComponent implements OnInit {
   skills= [];
   skill: SkillDto;
   search: string;
+  test: boolean;
 
   constructor(
       private skillService: SkillService,
       private userService: UserService) {
-    this.skillService.getSkills().subscribe(skill => this.skills = skill);
   }
 
   ngOnInit() {
+    this.skillService.getSkills().subscribe(skill => this.skills = skill);
   }
 
   onChange(skill) {
@@ -31,16 +31,12 @@ export class CompetencesComponent implements OnInit {
     }
   }
 
-  isUserCompetence(skill) {
-    this.userService.isUserCompetence('prenom.nom@gmail.com', skill.title).subscribe(
-        () => {
-          return true;
-        },
-        error => {
-          if (error instanceof HttpErrorResponse && error.status === 404) {
-            return false;
-          }
-        }
-    );
+  isCompetence(skill) {
+    this.userService.isUserCompetence('prenom.nom@gmail.com', skill.title).subscribe(next => this.test = next);
+    if (this.test == true) {
+      skill.checked = true;
+    } else {
+      skill.checked = false;
+    }
   }
 }

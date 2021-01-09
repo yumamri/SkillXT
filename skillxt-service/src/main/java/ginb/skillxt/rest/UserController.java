@@ -35,22 +35,19 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<Void> isUserCompetence(String email, String skill) {
+    public ResponseEntity<Boolean> isUserCompetence(String email, String skill) {
         try {
             if (userService.isUserCompetence(email, skill)) {
-                return ResponseEntity
-                        .status(HttpStatus.OK)
-                        .build();
+                return new ResponseEntity<>(true, HttpStatus.OK);
             } else {
-                return ResponseEntity
-                        .status(HttpStatus.NOT_FOUND)
-                        .build();
+                return new ResponseEntity<>(false, HttpStatus.OK);
             }
         } catch (BusinessException e) {
-            return handleErrorsResponseEntity(e);
+            return ResponseEntity
+                    .badRequest()
+                    .build();
         }
     }
-
     @Override
     public ResponseEntity<Void> addUserCompetence(String email, String skill) {
         try {
