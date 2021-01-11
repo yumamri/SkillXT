@@ -4,6 +4,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
+import { UserService } from './services/user.service';
 import { UsersService } from './services/users.service';
 import { SkillsService } from './services/skills.service';
 
@@ -15,6 +16,7 @@ import { SkillsService } from './services/skills.service';
   exports: [],
   declarations: [],
   providers: [
+    UserService,
     UsersService,
     SkillsService,
     ApiConfiguration
