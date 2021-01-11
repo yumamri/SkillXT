@@ -12,7 +12,7 @@ paths:
       tags:
         - users
       summary: searches users
-      operationId: searchUsers
+      operationId: searchUser
       description: |
         By passing in the appropriate options, you can search for
         available user in the system

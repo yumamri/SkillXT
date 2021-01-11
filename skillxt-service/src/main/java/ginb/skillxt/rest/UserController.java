@@ -102,8 +102,14 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<List<UserDTO>> searchUsers(@Valid String searchString) {
-        return ResponseEntity.ok(Collections.emptyList());
+    public ResponseEntity<UserDTO> searchUser(String email, String password) {
+        try {
+            return ResponseEntity.ok(userService.searchUser(email, password));
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
     }
 
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {

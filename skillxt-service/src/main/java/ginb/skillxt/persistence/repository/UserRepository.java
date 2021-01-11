@@ -9,4 +9,5 @@ import javax.validation.constraints.Email;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity findUserEntityByEmail(String email);
     Boolean existsByEmail(@Email String email);
+    Boolean existsByPassword(String password);
 }

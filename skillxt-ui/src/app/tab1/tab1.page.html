@@ -19,7 +19,7 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Connection</ion-card-title>
+      <ion-card-title>Connexion</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-button color="tertiary" shape="round" size="small" routerLink="/sign-in">Se Connecter</ion-button>
@@ -34,10 +34,13 @@
 
 
 
-  <ion-card>
+  <ion-card *ngIf="display() && user">
     <ion-card-header>
-      <ion-card-title>Accéder aux paramètres</ion-card-title>
+      <ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>Accéder aux paramètres</ion-card-title>
+    </ion-card-content>
     <ion-card-content>
       <ion-button color="primary" shape="round" size="small" routerLink="/settings">Paramètres</ion-button>
     </ion-card-content>

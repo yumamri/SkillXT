@@ -17,7 +17,7 @@ export class UserService {
     return this.userService.addUser({body: user});
   }
 
-  public searchUser(searchString: string): Observable<Array<UserDto>> {
+  public searchUser(searchString: string, password: string): Observable<Array<UserDto>> {
     return this.userService.searchUsers({searchString: searchString});
   }
 

@@ -126,4 +126,12 @@ public class UserService {
             throw new BadEmailFormatException();
         }
     }
+
+    public UserDTO searchUser(String email, String password) throws BusinessException {
+        if (userRepository.existsByEmail(email) && userRepository.existsByPassword(password)) {
+            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
+        } else {
+            throw new UserDoesNotExistException();
+        }
+    }
 }

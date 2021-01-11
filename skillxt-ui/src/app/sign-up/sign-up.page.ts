@@ -6,6 +6,7 @@ import {ConfirmedValidator} from './confirmed.validator';
 import {AlertController} from '@ionic/angular';
 import {CountryService} from '../services/country.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,6 +29,7 @@ export class SignUpPage implements OnInit {
       private userService: UserService,
       private countryService: CountryService,
       public formBuilder: FormBuilder,
+      public router: Router,
       public alertController: AlertController) {
     this.ionicForm = this.formBuilder.group({
           family: ['', [Validators.required]],
@@ -88,6 +90,7 @@ export class SignUpPage implements OnInit {
         this.userCreated();
         localStorage.setItem('userMail', user.email);
         this.ionicForm.reset();
+        this.router.navigate(['/tabs/tab1']);
       }, error => {
         if (error instanceof HttpErrorResponse && error.status === 412) {
           this.badEmailFormat();
