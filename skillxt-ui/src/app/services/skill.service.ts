@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {SkillsService} from "../api/services/skills.service";
-import {Observable} from "rxjs";
-import {SkillDto} from "../api/models/skill-dto";
+import {HttpClient} from '@angular/common/http';
+import {SkillsService} from '../api/services/skills.service';
+import {Observable} from 'rxjs';
+import {SkillDto} from '../api/models/skill-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,6 @@ export class SkillService {
   }
 
   public getUserCompetence(email: string): Observable<Array<SkillDto>> {
-    return this.skillService.getUserCompetence({email: email});
+    return this.skillService.getUserCompetence({email});
   }
 }
