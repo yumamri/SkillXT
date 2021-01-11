@@ -3,6 +3,7 @@ package ginb.skillxt.rest;
 import ginb.skillxt.domain.exception.*;
 import ginb.skillxt.domain.service.UserService;
 import ginb.skillxt.rest.v1.handler.UsersApi;
+import ginb.skillxt.rest.v1.model.SkillDTO;
 import ginb.skillxt.rest.v1.model.UserDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,20 +35,6 @@ public class UserController implements UsersApi {
         }
     }
 
-    @Override
-    public ResponseEntity<Boolean> isUserCompetence(String email, String skill) {
-        try {
-            if (userService.isUserCompetence(email, skill)) {
-                return new ResponseEntity<>(true, HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(false, HttpStatus.OK);
-            }
-        } catch (BusinessException e) {
-            return ResponseEntity
-                    .badRequest()
-                    .build();
-        }
-    }
     @Override
     public ResponseEntity<Void> addUserCompetence(String email, String skill) {
         try {

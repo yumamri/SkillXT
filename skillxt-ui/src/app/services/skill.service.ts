@@ -17,4 +17,8 @@ export class SkillService {
   public getSkills(): Observable<Array<SkillDto>> {
     return this.skillService.getSkills();
   }
+
+  public getUserCompetence(email: string): Observable<Array<SkillDto>> {
+    return this.skillService.getUserCompetence({email: email});
+  }
 }

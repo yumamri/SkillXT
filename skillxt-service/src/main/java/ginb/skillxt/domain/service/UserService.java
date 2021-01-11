@@ -31,15 +31,6 @@ public class UserService {
         }
     }
 
-    public boolean isUserCompetence(String email, String title) throws BusinessException {
-        userNotExist(email);
-        skillNotExist(title);
-
-        UserEntity userEntity = userRepository.findUserEntityByEmail(email);
-        SkillEntity skillEntity = skillRepository.findSkillEntityByTitle(title);
-        return userEntity.getSkillCompetence().contains(skillEntity);
-    }
-
     public UserEntity addUserCompetence(String email, String title) throws BusinessException {
         userNotExist(email);
         if (skillRepository.existsByTitle(title)) {
