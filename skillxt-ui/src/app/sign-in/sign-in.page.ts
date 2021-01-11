@@ -36,7 +36,7 @@ export class SignInPage implements OnInit {
     return this.ionicForm.controls;
   }
   async onSave() {
-    this.userService.searchUser(this.email, this.password).subscribe(() => {
+    this.userService.loginUser(this.email, this.password).subscribe(() => {
       localStorage.setItem('userMail', this.email);
       this.userLogged();
       this.userService.getUserByEmail(localStorage.getItem('userMail'))

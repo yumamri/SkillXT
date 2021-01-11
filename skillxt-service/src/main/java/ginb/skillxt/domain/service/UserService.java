@@ -125,4 +125,12 @@ public class UserService {
             throw new UserDoesNotExistException();
         }
     }
+
+    public UserDTO getUserByLogin(String password, String email) throws BusinessException {
+        if (userRepository.existsByPassword(password) && userRepository.existsByEmail(email)) {
+            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
+        } else {
+            throw new UserDoesNotExistException();
+        }
+    }
 }

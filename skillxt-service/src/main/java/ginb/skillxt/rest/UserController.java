@@ -91,7 +91,13 @@ public class UserController implements UsersApi {
 
     @Override
     public ResponseEntity<UserDTO> loginUser(@NotNull @Valid String email, @NotNull @Valid String password) {
-        return null;
+        try {
+            return ResponseEntity.ok(userService.getUserByLogin(password, email));
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
     }
 
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {
