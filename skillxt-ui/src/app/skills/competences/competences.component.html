@@ -7,7 +7,7 @@
             <div style="width: 74%"><ion-label style="">{{skill.title}}</ion-label></div>
             <div style="width: 26%"><ion-label style="font-size: 80%; color: #4d4d4d; text-align: center">{{skill.type}}</ion-label></div>
         </div>
-        <ion-checkbox slot="start" [(ngModel)]="skill.checked" (ionChange)="onChange(skill)" (load)="isCompetence(skill)"></ion-checkbox>
+        <ion-checkbox slot="start" [checked]="isInArray(skill)" [(ngModel)]="skill.checked" (ionChange)="onChange(skill)" ></ion-checkbox>
     </ion-item>
 
 </ion-card-content>
