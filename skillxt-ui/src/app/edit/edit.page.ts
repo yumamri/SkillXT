@@ -28,7 +28,7 @@ export class EditPage implements OnInit {
 
   }
   getUser() {
-    this.userService.getUserByEmail('prenom.nom@gmail.com')
+    this.userService.getUserByEmail(localStorage.getItem('userMail'))
         .subscribe(user => this.user = user,
             error => console.log('error'),
             () => console.log('complete'));

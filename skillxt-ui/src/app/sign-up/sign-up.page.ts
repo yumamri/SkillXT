@@ -86,6 +86,7 @@ export class SignUpPage implements OnInit {
       };
       this.userService.addUser(user).subscribe(() => {
         this.userCreated();
+        localStorage.setItem('userMail', user.email);
         this.ionicForm.reset();
       }, error => {
         if (error instanceof HttpErrorResponse && error.status === 412) {
