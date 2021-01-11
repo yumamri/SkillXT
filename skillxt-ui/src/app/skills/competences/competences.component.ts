@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {SkillDto} from "../../api/models/skill-dto";
-import {SkillService} from "../../services/skill.service";
-import {UserService} from "../../services/user.service";
-import {forEach} from "@angular-devkit/schematics";
-import {element} from "protractor";
+import {SkillDto} from '../../api/models/skill-dto';
+import {SkillService} from '../../services/skill.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-competences',
@@ -11,10 +9,10 @@ import {element} from "protractor";
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
-  skills= [];
+  skills = [];
   skill: SkillDto;
   search: string;
-  competence= [];
+  test: boolean;
 
   constructor(
       private skillService: SkillService,
@@ -23,14 +21,22 @@ export class CompetencesComponent implements OnInit {
 
   ngOnInit() {
     this.skillService.getSkills().subscribe(skill => this.skills = skill);
-    this.skillService.getUserCompetence('prenom.nom@gmail.com').subscribe(comm => console.log(comm));
   }
 
   onChange(skill) {
     if (skill.checked == true) {
-      this.userService.addUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+      this.userService.addUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
     } else if (skill.checked == false) {
-      this.userService.deleteUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+      this.userService.deleteUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
+    }
+  }
+
+  isCompetence(skill) {
+    this.userService.isUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe(next => this.test = next);
+    if (this.test == true) {
+      skill.checked = true;
+    } else {
+      skill.checked = false;
     }
   }
 }

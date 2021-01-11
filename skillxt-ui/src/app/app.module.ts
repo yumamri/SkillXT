@@ -11,15 +11,17 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import {ApiModule} from './api/api.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-      BrowserModule,
+    BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ApiModule.forRoot({rootUrl: 'http://localhost:8080'})],
   providers: [
     StatusBar,

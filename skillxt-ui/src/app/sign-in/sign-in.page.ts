@@ -37,14 +37,7 @@ export class SignInPage implements OnInit {
     await alert.present();
   }
   async onSave() {
-    // // TODO: boolean okay to put dialog somewhere else
-    //     this.ionicForm.reset();
-    //     error => {
-    //     if (error instanceof HttpErrorResponse && error.status === 400) {
-    //       this.missingField();
-    //   });
-    // }
-
+    // TODO send data to server and if its ok .subscribe => localStorage user email
     const alert = await this.alertController.create({
       header: 'Succès',
       message: 'email : ' + this.email + '\n mot de passe : ' + this.password
