@@ -11,6 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.List;
 
@@ -89,14 +90,8 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<UserDTO> searchUser(String email, String password) {
-        try {
-            return ResponseEntity.ok(userService.searchUser(email, password));
-        } catch (BusinessException e) {
-            return ResponseEntity
-                    .badRequest()
-                    .build();
-        }
+    public ResponseEntity<UserDTO> loginUser(@NotNull @Valid String email, @NotNull @Valid String password) {
+        return null;
     }
 
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {

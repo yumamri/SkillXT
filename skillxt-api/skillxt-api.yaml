@@ -10,30 +10,42 @@ paths:
   /users:
     get:
       tags:
-        - users
-      summary: searches users
-      operationId: searchUser
-      description: |
-        By passing in the appropriate options, you can search for
-        available user in the system
+        - user
+      summary: Logs user into the system
+      operationId: loginUser
       parameters:
-        - in: query
-          name: searchString
-          description: pass an optional search string for looking up inventory
-          required: false
+        - name: email
+          in: query
+          description: The email for login
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: true
           schema:
             type: string
       responses:
         '200':
-          description: search results matching criteria
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserDTO'
+                $ref: '#/components/schemas/UserDTO'
         '400':
-          description: bad input parameter
+          description: Invalid username/password supplied
     post:
       tags:
         - users
