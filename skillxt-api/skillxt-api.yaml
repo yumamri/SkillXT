@@ -18,20 +18,23 @@ paths:
         available user in the system
       parameters:
         - in: query
-          name: searchString
+          name: email
           description: pass an optional search string for looking up inventory
-          required: false
+          required: true
           schema:
             type: string
+          name: password
+            description: pass an optional search string for looking up inventory
+            required: true
+            schema:
+              type: string
       responses:
         '200':
           description: search results matching criteria
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserDTO'
+                $ref: '#/components/schemas/UserDTO'
         '400':
           description: bad input parameter
     post:

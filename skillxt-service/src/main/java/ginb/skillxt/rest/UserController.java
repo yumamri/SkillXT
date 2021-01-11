@@ -89,7 +89,7 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<UserDTO> searchUser(String email, String password) {
+    public ResponseEntity<UserDTO> searchUser(@Valid String searchString) {
         try {
             return ResponseEntity.ok(userService.searchUser(email, password));
         } catch (BusinessException e) {

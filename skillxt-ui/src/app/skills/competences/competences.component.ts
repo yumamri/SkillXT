@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SkillService} from "../../services/skill.service";
-import {UserService} from "../../services/user.service";
+import {SkillService} from '../../services/skill.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-competences',
@@ -8,9 +8,9 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./competences.component.scss'],
 })
 export class CompetencesComponent implements OnInit {
-  skills= [];
+  skills = [];
   search: string;
-  competences= [];
+  competences = [];
 
   constructor(
       private skillService: SkillService,
@@ -22,10 +22,10 @@ export class CompetencesComponent implements OnInit {
     this.skills = await this.getSkills();
   }
   isInArray(value) {
-    return this.competences.findIndex((val) => val.title === value.title) > -1
+    return this.competences.findIndex((val) => val.title === value.title) > -1;
   }
   getCompetences() {
-    return this.skillService.getUserCompetence('prenom.nom@gmail.com').toPromise();
+    return this.skillService.getUserCompetence(localStorage.getItem('userMail')).toPromise();
   }
   getSkills() {
     return this.skillService.getSkills().toPromise();
@@ -33,9 +33,9 @@ export class CompetencesComponent implements OnInit {
 
   onChange(skill) {
     if (skill.checked == true) {
-      this.userService.addUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+      this.userService.addUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
     } else if (skill.checked == false) {
-      this.userService.deleteUserCompetence('prenom.nom@gmail.com', skill.title).subscribe();
+      this.userService.deleteUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
     }
   }
 }
