@@ -4,8 +4,8 @@
 
 <ion-content [fullscreen]="true">
 
-  <button type="button" (click)="refresh()">Rafraîchir</button>
-  <div #div></div>
-
+  <ion-card *ngFor="let match of matchs">
+    <app-match-card></app-match-card>
+  </ion-card>
 
 </ion-content>

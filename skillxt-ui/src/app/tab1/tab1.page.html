@@ -34,7 +34,7 @@
 
 
 
-  <ion-card *ngIf="display() && user">
+  <ion-card *ngIf="user">
     <ion-card-header>
       <ion-card-title>{{user.name}} {{user.family | uppercase}}</ion-card-title>
     </ion-card-header>
