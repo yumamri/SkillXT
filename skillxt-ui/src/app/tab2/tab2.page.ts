@@ -15,19 +15,16 @@ import {
 })
 export class Tab2Page implements OnInit{
 
-  constructor(private renderer: Renderer2) {}
+  matchs = [];
 
-  array: string[] = ['abc', 'def', 'ghi'];
-  @ViewChild('div') div: ElementRef;
+  // replace with user
+  match = 'utilisateur';
 
-  refresh() {
-    this.array.forEach(element => {
-      const ionItem: HTMLParagraphElement = this.renderer.createElement('ion-item');
-      ionItem.innerHTML = element;
-      this.renderer.appendChild(this.div.nativeElement, ionItem);
-    });
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    this.matchs[0] = this.match;
+    this.matchs[1] = this.match;
+    this.matchs[2] = this.match;
   }
 }
