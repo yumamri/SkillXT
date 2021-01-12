@@ -118,13 +118,13 @@ public class UserService {
         }
     }
 
-    public UserDTO searchUser(String email, String password) throws BusinessException {
-        if (userRepository.existsByEmail(email) && userRepository.existsByPassword(password)) {
-            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
-        } else {
-            throw new UserDoesNotExistException();
-        }
-    }
+//    public UserDTO searchUser(String email, String password) throws BusinessException {
+//        if (userRepository.existsByEmail(email) && userRepository.existsByPassword(password)) {
+//            return dtoMapper.map(userRepository.findUserEntityByEmail(email));
+//        } else {
+//            throw new UserDoesNotExistException();
+//        }
+//    }
 
     public UserDTO getUserByLogin(String password, String email) throws BusinessException {
         if (userRepository.existsByPassword(password) && userRepository.existsByEmail(email)) {

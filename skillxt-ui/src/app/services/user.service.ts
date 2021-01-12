@@ -35,10 +35,10 @@ export class UserService {
   }
 
   public addUserInterest(email: string, skill: string): Observable<void> {
-    return this.userService.addUserCompetence({email, skill});
+    return this.userService.addUserInterest({email, skill});
   }
 
   public deleteUserInterest(email: string, skill: string): Observable<void> {
-    return this.userService.deleteUserCompetence({email, skill});
+    return this.userService.deleteUserInterest({email, skill});
   }
 }

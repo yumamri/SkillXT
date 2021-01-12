@@ -26,13 +26,13 @@
 
         <div>
           <p>Mot de passe</p>
-          <ion-input placeholder="Mot de passe" type="password" formControlName="password"></ion-input>
+          <ion-input placeholder="Mot de passe" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
           <span class="error" *ngIf="errorControl.password.errors?.required">Le mot de passe doit être renseigné.</span>
         </div>
       </form>
 
       <section>
-        <ion-button class="ion-text-center" shape="round" [disabled]="!ionicForm.valid" (click)="onSave()">Se connecter</ion-button>
+        <ion-button class="ion-text-center" shape="round" [disabled]="!ionicForm.valid" (click)="onSave(email, password)">Se connecter</ion-button>
       </section>
       <a class="ion-text-center" routerLink="/sign-up">Créer un compte</a>
     </ion-card>

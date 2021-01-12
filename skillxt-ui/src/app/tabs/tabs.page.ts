@@ -19,7 +19,9 @@ export class TabsPage  implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getUser();
+    if (localStorage.getItem('userMail') !== null) {
+      this.getUser();
+    }
   }
   getUser() {
     this.userService.getUserByEmail(localStorage.getItem('userMail'))

@@ -13,9 +13,10 @@ import {Router} from '@angular/router';
 })
 export class SignInPage implements OnInit {
   ionicForm: FormGroup;
+  user: UserDto;
+
   email: string;
   password: string;
-  user: UserDto;
 
   constructor(
       public formBuilder: FormBuilder,
@@ -35,14 +36,10 @@ export class SignInPage implements OnInit {
   get errorControl() {
     return this.ionicForm.controls;
   }
-  async onSave() {
-    this.userService.loginUser(this.email, this.password).subscribe(() => {
-      localStorage.setItem('userMail', this.email);
+  async onSave(email, password) {
+    this.userService.loginUser(email, password).subscribe(() => {
+      localStorage.setItem('userMail', email);
       this.userLogged();
-      this.userService.getUserByEmail(localStorage.getItem('userMail'))
-          .subscribe(user => this.user = user,
-              error => console.log('error'),
-              () => console.log('complete'));
       this.ionicForm.reset();
       this.router.navigate(['/tabs/tab1']);
     });

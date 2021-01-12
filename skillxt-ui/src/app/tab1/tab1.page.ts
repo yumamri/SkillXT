@@ -15,11 +15,13 @@ export class Tab1Page implements OnInit{
   ) {}
 
   display(){
-    return localStorage.getItem('userMail') != null;
+    return localStorage.getItem('userMail') !== null;
   }
 
   ngOnInit(): void {
-    this.getUser();
+    if (localStorage.getItem('userMail') !== null) {
+      this.getUser();
+    }
   }
 
   getUser() {
