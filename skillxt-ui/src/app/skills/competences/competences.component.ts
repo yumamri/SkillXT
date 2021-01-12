@@ -11,6 +11,7 @@ export class CompetencesComponent implements OnInit {
   skills = [];
   search: string;
   competences = [];
+  checkedSkills = [];
 
   constructor(
       private skillService: SkillService,
@@ -20,9 +21,11 @@ export class CompetencesComponent implements OnInit {
   async ngOnInit() {
     this.competences = await this.getCompetences();
     this.skills = await this.getSkills();
+    this.competences.forEach(skill => this.checkedSkills.push(skill));
+    console.log(this.checkedSkills);
   }
-  isInArray(value) {
-    return this.competences.findIndex((val) => val.title === value.title) > -1;
+  isInArray(skill) {
+    return this.competences.findIndex((val) => val.title === skill.title) > -1;
   }
   getCompetences() {
     return this.skillService.getUserCompetence(localStorage.getItem('userMail')).toPromise();
@@ -31,11 +34,17 @@ export class CompetencesComponent implements OnInit {
     return this.skillService.getSkills().toPromise();
   }
 
-  onChange(skill) {
-    if (skill.checked == true) {
+  onCheck(skill) {
+    if (!this.isInArray(skill)) {
+      this.checkedSkills.push(skill);
       this.userService.addUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
-    } else if (skill.checked == false) {
-      this.userService.deleteUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
+    } else {
+      const index = this.checkedSkills.findIndex((val) => val.title === skill.title);
+      if (index > -1) {
+        this.checkedSkills.splice(index, 1);
+        this.userService.deleteUserCompetence(localStorage.getItem('userMail'), skill.title).subscribe();
+      }
     }
+    console.log(this.checkedSkills);
   }
 }
