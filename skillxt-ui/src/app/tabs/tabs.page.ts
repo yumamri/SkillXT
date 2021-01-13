@@ -9,6 +9,8 @@ import {UserService} from '../services/user.service';
 })
 export class TabsPage  implements OnInit{
   user: UserDto;
+  win: any;
+  newTab: any;
 
   constructor(
       private userService: UserService,

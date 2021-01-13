@@ -1,5 +1,6 @@
 package ginb.skillxt.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import ginb.skillxt.domain.exception.*;
 import ginb.skillxt.domain.service.UserService;
 import ginb.skillxt.rest.v1.handler.UsersApi;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController implements UsersApi {
@@ -79,7 +81,7 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<UserDTO> getUserByEmail(String email){
+    public ResponseEntity<UserDTO> getUserByEmail(String email) {
         try {
             return ResponseEntity.ok(userService.getUserByEmail(email));
         } catch (BusinessException e) {
