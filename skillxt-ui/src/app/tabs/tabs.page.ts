@@ -31,4 +31,8 @@ export class TabsPage  implements OnInit{
             error => console.log('error'),
             () => console.log('complete'));
   }
+
+  refreshMatch() {
+    //i want to refresh match page (page A) here
+  }
 }
