@@ -22,7 +22,7 @@
     </ion-card-content>
   </ion-card>
 
-
+  <ion-button shape="round" size="small" (click)="refresh()"><ion-icon name="reload-outline"></ion-icon>refresh</ion-button>
 
   <ion-card *ngIf="user">
     <ion-card-header>
@@ -33,7 +33,6 @@
     <br><ion-title>Note : </ion-title><br>
     <p>N'oubliez-pas d'ajouter des compétences et des intérêts pour profiter au maximum de l'application</p><br>
   </ion-card>
-  <ion-button shape="round" size="small" (click)="refresh()"><ion-icon name="reload-outline"></ion-icon>refresh</ion-button>
 </ion-content>
 
 <ion-footer>
