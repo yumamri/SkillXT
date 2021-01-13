@@ -1,10 +1,10 @@
 openapi: 3.0.0
 servers:
   - description: SkillXT API
-    url: http://localhost:8080
+    url: 'http://localhost:8080'
 info:
   description: This is a simple API
-  version: "1.0.0"
+  version: 1.0.0-oas3
   title: SkillXT API
 paths:
   /users:
@@ -29,17 +29,6 @@ paths:
       responses:
         '200':
           description: successful operation
-#          headers:
-#            X-Rate-Limit:
-#              description: calls per hour allowed by the user
-#              schema:
-#                type: integer
-#                format: int32
-#            X-Expires-After:
-#              description: date in UTC when token expires
-#              schema:
-#                type: string
-#                format: date-time
           content:
             application/json:
               schema:
@@ -65,7 +54,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UserDTO'
         description: User item to add
-  /users/{email}:
+  '/users/{email}':
     get:
       tags:
         - users
@@ -84,12 +73,40 @@ paths:
           content:
             application/json:
               schema:
+                type: array
+                items:
                 $ref: '#/components/schemas/UserDTO'
         '400':
           description: Invalid email supplied
         '404':
           description: User not found
-  /users/{email}/competences/{skill}:
+    post:
+      tags:
+        - users
+      summary: Get matchs
+      operationId: getUserMatch
+      parameters:
+        - name: email
+          in: path
+          description: The email thats needs to be fetched.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: Invalid email supplied
+        '404':
+          description: User not found
+
+  '/users/{email}/competences/{skill}':
     post:
       tags:
         - users
@@ -140,7 +157,7 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
-  /users/{email}/interests/{skill}:
+  '/users/{email}/interests/{skill}':
     post:
       tags:
         - users
@@ -206,7 +223,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SkillDTO'
-  /skills/{email}/competences:
+  '/skills/{email}/competences':
     get:
       tags:
         - skills
@@ -232,7 +249,7 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
-  /skills/{email}/interest:
+  '/skills/{email}/interest':
     get:
       tags:
         - skills

@@ -136,7 +136,7 @@ public class UserService {
         }
     }
 
-    public List<UserDTO> getUserMatch(String email) {
+    public List<UserDTO> getUserMatch(String email) throws BusinessException {
         List<UserDTO> userMatchDTOList = new ArrayList<>();
         if (userRepository.existsByEmail(email)) {
             UserEntity userEntity = userRepository.findUserEntityByEmail(email);
@@ -149,7 +149,9 @@ public class UserService {
                     userMatchDTOList.add(dtoMapper.map(user));
                 }
             }
+            return userMatchDTOList;
+        } else {
+            throw new UserDoesNotExistException();
         }
-        return userMatchDTOList;
     }
 }

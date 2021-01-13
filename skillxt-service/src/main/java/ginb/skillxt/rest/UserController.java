@@ -90,6 +90,17 @@ public class UserController implements UsersApi {
     }
 
     @Override
+    public ResponseEntity<List<UserDTO>> getUserMatch(String email) {
+        try {
+            return ResponseEntity.ok(userService.getUserMatch(email));
+        } catch (BusinessException e) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
+    }
+
+    @Override
     public ResponseEntity<UserDTO> loginUser(@NotNull @Valid String email, @NotNull @Valid String password) {
         try {
             return ResponseEntity.ok(userService.getUserByLogin(password, email));
