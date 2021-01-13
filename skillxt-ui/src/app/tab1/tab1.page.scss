@@ -3,3 +3,78 @@ ion-img{
   display: block;
   margin: 2% auto;
 }
+
+ion-header {
+  --ion-background-color: var(--ion-color-primary);
+}
+
+ion-title {
+  text-align: center;
+  color: var(--ion-color-primary-contrast);
+}
+
+ion-label {
+  display: block;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 10%;
+}
+
+ion-content ion-card-title {
+  text-align: center;
+}
+
+ion-button {
+  display: block;
+  margin: 0 auto 5%;
+  width: 60%;
+  color: var(--ion-color-primary);
+  --background: var(--ion-color-four);
+
+}
+
+ion-content{
+  --ion-background-color: var(--ion-color-four);
+}
+
+ion-toolbar ion-title {
+  text-align: center;
+  color: var(--ion-color-light);
+}
+
+ion-card {
+  width: 85%;
+  margin: 15% auto;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: var(--ion-color-light);
+}
+
+ion-card-title {
+  text-align: center;
+}
+
+.propos{
+  width: 85%;
+  margin: 5% auto;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: var(--ion-color-tertiary);
+  color: var(--ion-color-primary);
+}
+
+div {
+  text-align: center;
+
+}
+
+p {
+  text-align: center;
+}
+

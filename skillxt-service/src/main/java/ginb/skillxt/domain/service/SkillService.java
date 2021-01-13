@@ -35,6 +35,16 @@ public class SkillService {
         return skillDTOList;
     }
 
+    public List<SkillDTO> getUserInterest(String email) throws BusinessException {
+        userNotExist(email);
+        List<SkillDTO> skillDTOList = new ArrayList<>();
+        UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+        for (SkillEntity skillEntity : skillRepository.getUserInterest(userEntity.getId())) {
+            skillDTOList.add(dtoMapper.map(skillEntity));
+        }
+        return skillDTOList;
+    }
+
     public List<SkillDTO> findAllSkillEntity() {
         List<SkillDTO> skillDTOList = new ArrayList<>();
         for (SkillEntity skillEntity : skillRepository.findAllSkillEntity()) {

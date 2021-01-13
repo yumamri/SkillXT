@@ -10,6 +10,8 @@ import ginb.skillxt.rest.v1.model.UserDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.*;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -133,4 +135,23 @@ public class UserService {
             throw new UserDoesNotExistException();
         }
     }
+
+//    public List<UserDTO> getUserMatch(String email) {
+//        List<UserDTO> userMatchDTOList = new ArrayList<>();
+//        if (userRepository.existsByEmail(email)) {
+//            UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+//            Set<SkillEntity> userEntitySkill = userEntity.getSkillInterest();
+//            List<UserEntity> userList = userRepository.findAllUserEntity();
+//            Set<SkillEntity> loopUserEntitySkill = new ArrayList<>();
+//            for (UserEntity user : userList){
+//                loopUserEntitySkill = user.getSkillCompetence();
+//                if (!Collections.disjoint(userEntitySkill, loopUserEntitySkill)) {
+//
+//                }
+//
+//
+//            }
+//        }
+//        return userMatchDTOList;
+//    }
 }

@@ -232,6 +232,32 @@ paths:
           description: Invalid email or skill supplied
         '404':
           description: User or skill not found
+  /skills/{email}/interest:
+    get:
+      tags:
+        - skills
+      summary: Get all user interest
+      operationId: getUserInterest
+      parameters:
+        - name: email
+          in: path
+          description: The email that needs to be fetched.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SkillDTO'
+        '400':
+          description: Invalid email or skill supplied
+        '404':
+          description: User or skill not found
 components:
   schemas:
     UserDTO:

@@ -135,4 +135,66 @@ export class SkillsService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation getUserInterest
+   */
+  static readonly GetUserInterestPath = '/skills/{email}/interest';
+
+  /**
+   * Get all user interest.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserInterest()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserInterest$Response(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<StrictHttpResponse<Array<SkillDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, SkillsService.GetUserInterestPath, 'get');
+    if (params) {
+      rb.path('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<SkillDto>>;
+      })
+    );
+  }
+
+  /**
+   * Get all user interest.
+   *
+   *
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getUserInterest$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserInterest(params: {
+
+    /**
+     * The email that needs to be fetched.
+     */
+    email: string;
+  }): Observable<Array<SkillDto>> {
+
+    return this.getUserInterest$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<SkillDto>>) => r.body as Array<SkillDto>)
+    );
+  }
+
 }

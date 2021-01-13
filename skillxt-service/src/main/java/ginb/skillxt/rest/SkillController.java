@@ -42,6 +42,23 @@ public class SkillController implements SkillsApi {
         }
     }
 
+    @Override
+    public ResponseEntity<List<SkillDTO>> getUserInterest(String email) {
+        try {
+            return ResponseEntity.ok(skillService.getUserInterest(email));
+        } catch (BusinessException e) {
+            if (e instanceof UserDoesNotExistException) {
+                return ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .build();
+            } else {
+                return ResponseEntity
+                        .badRequest()
+                        .build();
+            }
+        }
+    }
+
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {
         if (e instanceof UserDoesNotExistException || e instanceof SkillDoesNotExistException) {
             return ResponseEntity

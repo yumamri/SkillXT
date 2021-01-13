@@ -32,7 +32,7 @@
       </form>
 
       <section>
-        <ion-button class="ion-text-center" shape="round" [disabled]="!ionicForm.valid" (click)="onSave(email, password)">Se connecter</ion-button>
+        <ion-button shape="round" [disabled]="!ionicForm.valid" (click)="onSave(email, password)">Se connecter</ion-button>
       </section>
       <a class="ion-text-center" routerLink="/sign-up">Créer un compte</a>
     </ion-card>
