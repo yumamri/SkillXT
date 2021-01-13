@@ -31,7 +31,4 @@ export class TabsPage  implements OnInit{
             error => console.log('error'),
             () => console.log('complete'));
   }
-
-  refreshMatch() {
-  }
 }
