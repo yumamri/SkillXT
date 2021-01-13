@@ -41,4 +41,8 @@ export class UserService {
   public deleteUserInterest(email: string, skill: string): Observable<void> {
     return this.userService.deleteUserInterest({email, skill});
   }
+
+  public getUserMatch(email: string): Observable<Array<UserDto>> {
+    return this.userService.getUserMatch({email});
+  }
 }

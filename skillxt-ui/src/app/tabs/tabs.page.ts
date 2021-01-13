@@ -9,6 +9,8 @@ import {UserService} from '../services/user.service';
 })
 export class TabsPage  implements OnInit{
   user: UserDto;
+  win: any;
+  newTab: any;
 
   constructor(
       private userService: UserService,
@@ -28,5 +30,8 @@ export class TabsPage  implements OnInit{
         .subscribe(user => this.user = user,
             error => console.log('error'),
             () => console.log('complete'));
+  }
+
+  refreshMatch() {
   }
 }

@@ -220,6 +220,68 @@ export class UsersService extends BaseService {
   }
 
   /**
+   * Path part for operation getUserMatch
+   */
+  static readonly GetUserMatchPath = '/users/{email}/match';
+
+  /**
+   * Get matchs.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserMatch()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserMatch$Response(params: {
+
+    /**
+     * The email thats needs to be fetched.
+     */
+    email: string;
+  }): Observable<StrictHttpResponse<Array<UserDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.GetUserMatchPath, 'get');
+    if (params) {
+      rb.path('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<UserDto>>;
+      })
+    );
+  }
+
+  /**
+   * Get matchs.
+   *
+   *
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getUserMatch$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserMatch(params: {
+
+    /**
+     * The email thats needs to be fetched.
+     */
+    email: string;
+  }): Observable<Array<UserDto>> {
+
+    return this.getUserMatch$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<UserDto>>) => r.body as Array<UserDto>)
+    );
+  }
+
+  /**
    * Path part for operation addUserCompetence
    */
   static readonly AddUserCompetencePath = '/users/{email}/competences/{skill}';
