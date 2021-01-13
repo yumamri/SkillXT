@@ -136,22 +136,20 @@ public class UserService {
         }
     }
 
-//    public List<UserDTO> getUserMatch(String email) {
-//        List<UserDTO> userMatchDTOList = new ArrayList<>();
-//        if (userRepository.existsByEmail(email)) {
-//            UserEntity userEntity = userRepository.findUserEntityByEmail(email);
-//            Set<SkillEntity> userEntitySkill = userEntity.getSkillInterest();
-//            List<UserEntity> userList = userRepository.findAllUserEntity();
-//            Set<SkillEntity> loopUserEntitySkill = new ArrayList<>();
-//            for (UserEntity user : userList){
-//                loopUserEntitySkill = user.getSkillCompetence();
-//                if (!Collections.disjoint(userEntitySkill, loopUserEntitySkill)) {
-//
-//                }
-//
-//
-//            }
-//        }
-//        return userMatchDTOList;
-//    }
+    public List<UserDTO> getUserMatch(String email) {
+        List<UserDTO> userMatchDTOList = new ArrayList<>();
+        if (userRepository.existsByEmail(email)) {
+            UserEntity userEntity = userRepository.findUserEntityByEmail(email);
+            Set<SkillEntity> userEntitySkill = userEntity.getSkillInterest();
+            List<UserEntity> userList = userRepository.findAllUserEntity();
+            Set<SkillEntity> loopUserEntitySkill;
+            for (UserEntity user : userList){
+                loopUserEntitySkill = user.getSkillCompetence();
+                if (!Collections.disjoint(userEntitySkill, loopUserEntitySkill)) {
+                    userMatchDTOList.add(dtoMapper.map(user));
+                }
+            }
+        }
+        return userMatchDTOList;
+    }
 }

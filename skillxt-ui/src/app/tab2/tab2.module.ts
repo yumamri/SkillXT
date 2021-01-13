@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
-import {MatchCardComponent} from "./match-card/match-card.component";
 
 @NgModule({
   imports: [
@@ -14,6 +13,6 @@ import {MatchCardComponent} from "./match-card/match-card.component";
     FormsModule,
     Tab2PageRoutingModule
   ],
-    declarations: [Tab2Page, MatchCardComponent]
+    declarations: [Tab2Page]
 })
 export class Tab2PageModule {}

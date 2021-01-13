@@ -100,6 +100,8 @@ public class UserController implements UsersApi {
         }
     }
 
+
+
     private ResponseEntity<Void> handleErrorsResponseEntity(@NonNull BusinessException e) {
         if (e instanceof UserExistsException) {
             return ResponseEntity

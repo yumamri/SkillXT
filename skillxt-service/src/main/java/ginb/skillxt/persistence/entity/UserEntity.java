@@ -1,9 +1,11 @@
 package ginb.skillxt.persistence.entity;
 
+import ginb.skillxt.rest.v1.model.UserDTO;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 

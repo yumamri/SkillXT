@@ -24,6 +24,10 @@ export class Tab1Page implements OnInit{
     }
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
+
   getUser() {
     this.userService.getUserByEmail(localStorage.getItem('userMail'))
         .subscribe(user => this.user = user,
