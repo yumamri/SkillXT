@@ -32,31 +32,24 @@
         </ion-card>
 
         <ion-card *ngIf="user">
-            <div>
-                <div class="row">
-                    <div>
-                        <div class="column left">
-                            <ion-icon name="bulb"></ion-icon>
-                        </div>
-                        <div class="column right buble">
-<!--                        need to be in a different component to be generated x times-->
-                            <ion-label>Compétence</ion-label>
-                            <ion-label>Compétence</ion-label>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="column left">
-                            <ion-icon name="school"></ion-icon>
-                        </div>
-                        <div class="column right buble">
-                            <ion-label>Interet</ion-label>
-                            <ion-label>Interet</ion-label>
-                            <app-bubble-skill></app-bubble-skill>
-                        </div>
-                    </div>
+            <div class="row">
+                <br>
+                <div>
+                    <ion-icon name="school"></ion-icon>
+                    <ion-label class="bubble skill-label">{{interestA.title}}</ion-label>
+                    <ion-label class="bubble skill-label">{{interestB.title}}</ion-label>
+                    <ion-label class="bubble skill-label">{{interestC.title}}</ion-label>
+                </div>
+                <br>
+                <a class="plus" routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
+                <div>
+                    <ion-icon name="bulb"></ion-icon>
+                    <ion-label class="bubble skill-label">{{competenceA.title}}</ion-label>
+                    <ion-label class="bubble skill-label">{{competenceB.title}}</ion-label>
+                    <ion-label class="bubble skill-label">{{competenceC.title}}</ion-label>
                 </div>
             </div>
-            <a class="plus" routerLink="/skills"><ion-img src="./assets/icon/add_circle_outline-purple-24dp/baseline_add_circle_outline_purple_24dp.png"></ion-img></a>
+
         </ion-card>
 
         <ion-card class="about" *ngIf="user">

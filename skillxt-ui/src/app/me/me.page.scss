@@ -65,37 +65,28 @@ tr:first-child, tr:first-child .middle{
 }
 
 .plus{
-    text-align: right;
     float: right;
-    margin-right: 1%;
 }
 
 ion-icon{
     display: block;
     margin: auto;
     color: var(--ion-color-tertiary);
+    float: left;
 }
 
 .row{
     margin-right: 2%;
     margin-left: 2%;
 }
-.column {
-    float: left;
-}
-.left {
-    width: 10%;
-}
-.right {
-    width: 90%;
-}
 
-.buble {
+.bubble {
     margin: 2%;
     width: 84%;
+    display: inline;
 }
 
-.buble ion-label {
+.skill-label {
     margin: 10px 1px;
     padding: 2px;
 
