@@ -95,4 +95,8 @@ export class MePage implements OnInit {
             error => console.log('error'),
             () => console.log('complete'));
   }
+
+  refresh() {
+    window.location.reload();
+  }
 }

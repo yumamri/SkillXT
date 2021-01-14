@@ -32,6 +32,7 @@
         </ion-card>
 
         <ion-card *ngIf="user">
+            <ion-button shape="round" size="small" (click)="refresh()"><ion-icon name="reload-outline"></ion-icon>refresh</ion-button>
             <div class="row">
                 <br>
                 <div>
