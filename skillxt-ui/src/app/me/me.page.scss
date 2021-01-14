@@ -105,3 +105,15 @@ ion-icon{
     height: 50%;
     margin-bottom: 5%;
 }
+
+.refresh{
+    display: block;
+    margin: 0 auto 5%;
+    width: 60%;
+    color: var(--ion-color-primary);
+    --background: var(--ion-color-four);
+}
+.refresh ion-icon{
+    color: var(--ion-color-primary);
+    margin: 0;
+}

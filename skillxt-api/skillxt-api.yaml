@@ -320,6 +320,8 @@ components:
         country:
           type: string
           example: France
+        about:
+          type: string
     SkillDTO:
       type: object
       required:

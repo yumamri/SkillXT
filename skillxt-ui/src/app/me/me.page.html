@@ -31,8 +31,9 @@
             </ion-card-content>
         </ion-card>
 
+        <ion-button class="refresh" shape="round" size="small" (click)="refresh()"><ion-icon name="reload-outline"></ion-icon>refresh</ion-button>
+
         <ion-card *ngIf="user">
-            <ion-button shape="round" size="small" (click)="refresh()"><ion-icon name="reload-outline"></ion-icon>refresh</ion-button>
             <div class="row">
                 <br>
                 <div>
@@ -54,9 +55,7 @@
         </ion-card>
 
         <ion-card class="about" *ngIf="user">
-            <ion-card-content>
-                {{propos}}
-            </ion-card-content>
+            <ion-card-content><ion-label>{{user.about}}</ion-label></ion-card-content>
         </ion-card>
     </ion-content>
 </div>
