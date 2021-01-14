@@ -62,7 +62,11 @@ tr:first-child, tr:first-child .middle{
 
 .middle ion-icon{
     font-size: 100px;
-    text-align: center;
+}
+
+.left {
+    margin-right: 10px;
+    float: left;
 }
 
 .plus{
@@ -73,7 +77,6 @@ ion-icon{
     display: block;
     margin: auto;
     color: var(--ion-color-tertiary);
-    float: left;
 }
 
 .row{
