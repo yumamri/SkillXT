@@ -33,6 +33,15 @@ public class UserService {
         }
     }
 
+    public void updateUser(String name, String family, String country, String about, UserDTO userDTO) {
+        UserEntity userEntity = userRepository.findUserEntityByEmail(userDTO.getEmail());
+        userEntity.setName(name);
+        userEntity.setFamily(family);
+        userEntity.setCountry(country);
+        userEntity.setAbout(about);
+        userRepository.save(userEntity);
+    }
+
     public UserEntity addUserCompetence(String email, String title) throws BusinessException {
         userNotExist(email);
         if (skillRepository.existsByTitle(title)) {

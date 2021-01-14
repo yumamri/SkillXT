@@ -39,6 +39,12 @@ public class UserController implements UsersApi {
     }
 
     @Override
+    public ResponseEntity<Void> updateUser(@NotNull @Valid String name, @NotNull @Valid String family, @NotNull @Valid String country, @NotNull @Valid String about, @Valid UserDTO body) {
+        userService.updateUser(name, family, country, about, body);
+        return ResponseEntity.ok().build();
+    }
+
+    @Override
     public ResponseEntity<Void> addUserCompetence(String email, String skill) {
         try {
             userService.addUserCompetence(email, skill);

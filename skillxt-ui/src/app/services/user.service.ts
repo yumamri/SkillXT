@@ -18,6 +18,9 @@ export class UserService {
     return this.userService.addUser({body: user});
   }
 
+  public updateUser(name: string, family: string, country: string, about: string, user: UserDto): Observable<void> {
+    return this.userService.updateUser({name, family, country, about, body: user});
+  }
   public loginUser(email: string, password: string): Observable<UserDto> {
     return this.userService.loginUser({email, password});
   }

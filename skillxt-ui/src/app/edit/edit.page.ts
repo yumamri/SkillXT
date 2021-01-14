@@ -9,12 +9,12 @@ import {CountryService} from '../services/country.service';
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage implements OnInit {
-  about = 'A propos ...';
   user: UserDto;
 
-  family: string | undefined;
-  name: string | undefined;
-  country: string | undefined;
+  family: string;
+  name: string;
+  country: string;
+  about: string;
   countries: string[];
 
   constructor(
@@ -50,11 +50,11 @@ export class EditPage implements OnInit {
     } else {
       this.country = this.user.country;
     }
-
-    console.log(this.family);
-    console.log(this.name);
-    console.log(this.country);
-
-
+    if (this.about !== undefined) {
+      this.user.about = this.about;
+    } else {
+      this.about = this.user.about;
+    }
+    this.userService.updateUser(this.name, this.family, this.country, this.about, this.user).subscribe();
   }
 }

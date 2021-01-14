@@ -35,10 +35,50 @@ paths:
                 $ref: '#/components/schemas/UserDTO'
         '400':
           description: Invalid username/password supplied
+    put:
+      tags:
+        - users
+      summary: Updates a user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: family
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: country
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: about
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        description: User item to add
     post:
       tags:
         - users
-      summary: adds a user item
+      summary: Adds a user item
       operationId: addUser
       description: Adds a user to the system
       responses:
@@ -76,26 +116,6 @@ paths:
                 $ref: '#/components/schemas/UserDTO'
         '400':
           description: Invalid email supplied
-        '404':
-          description: User not found
-    put:
-      tags:
-        - users
-      summary: Updated user
-      description: This can only be done by the logged in user.
-      operationId: updateUser
-      parameters:
-        - name: email
-          in: path
-          description: The email that needs to be fetched.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful operation
-        '400':
-          description: Invalid user supplied
         '404':
           description: User not found
   '/users/{email}/match':

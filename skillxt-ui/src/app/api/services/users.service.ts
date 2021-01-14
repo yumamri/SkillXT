@@ -96,12 +96,86 @@ export class UsersService extends BaseService {
   }
 
   /**
+   * Path part for operation updateUser
+   */
+  static readonly UpdateUserPath = '/users';
+
+  /**
+   * Updates a user.
+   *
+   * This can only be done by the logged in user.
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUser()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  updateUser$Response(params: {
+    name: string;
+    family: string;
+    country: string;
+    about: string;
+
+    /**
+     * User item to add
+     */
+    body?: UserDto
+  }): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.UpdateUserPath, 'put');
+    if (params) {
+      rb.query('name', params.name, {});
+      rb.query('family', params.family, {});
+      rb.query('country', params.country, {});
+      rb.query('about', params.about, {});
+      rb.body(params.body, 'application/json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * Updates a user.
+   *
+   * This can only be done by the logged in user.
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateUser$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  updateUser(params: {
+    name: string;
+    family: string;
+    country: string;
+    about: string;
+
+    /**
+     * User item to add
+     */
+    body?: UserDto
+  }): Observable<void> {
+
+    return this.updateUser$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
    * Path part for operation addUser
    */
   static readonly AddUserPath = '/users';
 
   /**
-   * adds a user item.
+   * Adds a user item.
    *
    * Adds a user to the system
    *
@@ -135,7 +209,7 @@ export class UsersService extends BaseService {
   }
 
   /**
-   * adds a user item.
+   * Adds a user item.
    *
    * Adds a user to the system
    *
@@ -216,68 +290,6 @@ export class UsersService extends BaseService {
 
     return this.getUserByEmail$Response(params).pipe(
       map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
-    );
-  }
-
-  /**
-   * Path part for operation updateUser
-   */
-  static readonly UpdateUserPath = '/users/{email}';
-
-  /**
-   * Updated user.
-   *
-   * This can only be done by the logged in user.
-   *
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `updateUser()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  updateUser$Response(params: {
-
-    /**
-     * The email that needs to be fetched.
-     */
-    email: string;
-  }): Observable<StrictHttpResponse<void>> {
-
-    const rb = new RequestBuilder(this.rootUrl, UsersService.UpdateUserPath, 'put');
-    if (params) {
-      rb.path('email', params.email, {});
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'text',
-      accept: '*/*'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
-  }
-
-  /**
-   * Updated user.
-   *
-   * This can only be done by the logged in user.
-   *
-   * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `updateUser$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  updateUser(params: {
-
-    /**
-     * The email that needs to be fetched.
-     */
-    email: string;
-  }): Observable<void> {
-
-    return this.updateUser$Response(params).pipe(
-      map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
